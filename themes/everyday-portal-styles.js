@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v12 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v15 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -114,7 +114,7 @@ function cleanupAllInlineStyles() {
   function walkAndClean(root) {
     if (!root) return;
     try {
-      const tagged = root.querySelectorAll?.('[data-everyday-styled="true"], [data-everyday-card-opt-styled="true"]') || [];
+      const tagged = root.querySelectorAll?.('[data-everyday-styled="true"], [data-everyday-card-opt-styled="true"], [data-everyday-grid-styled="true"], [data-everyday-button-styled="true"]') || [];
       for (const el of tagged) {
         if (el.dataset.everydayStyled === 'true') {
           el.style.removeProperty('background-color');
@@ -132,6 +132,21 @@ function cleanupAllInlineStyles() {
           el.style.removeProperty('border-bottom-right-radius');
           el.style.removeProperty('overflow');
           delete el.dataset.everydayCardOptStyled;
+        }
+        if (el.dataset.everydayGridStyled === 'true') {
+          el.style.removeProperty('border-radius');
+          delete el.dataset.everydayGridStyled;
+        }
+        if (el.dataset.everydayButtonStyled === 'true') {
+          el.style.removeProperty('--wa-color-brand-fill-loud');
+          el.style.removeProperty('--wa-color-brand-fill-normal');
+          el.style.removeProperty('--wa-color-brand-fill-quiet');
+          el.style.removeProperty('--wa-color-brand-on-loud');
+          el.style.removeProperty('--wa-color-brand-on-normal');
+          el.style.removeProperty('--wa-color-brand-on-quiet');
+          el.style.removeProperty('--wa-color-on-normal');
+          el.style.removeProperty('--wa-color-fill-normal');
+          delete el.dataset.everydayButtonStyled;
         }
       }
       const all = root.querySelectorAll?.('*') || [];
@@ -213,6 +228,78 @@ function findAllMenus(root, found = []) {
 //   ha-card.type-custom-grid-layout { border-radius: unset !important }
 // Functions findCardOptionsContainers + styleCardOptions removed.
 
+// v13: BUG-004 fix-v3 - Stefan-Verify revealed v12 card-mod yaml-block ALSO didn't reach
+// the cascade depth needed. Back to inline-style approach, but this time targeting
+// Stefan's specific selector `ha-card.type-custom-grid-layout` (not the hui-card-options
+// inner toolbar). Inline border-radius: 0 forces flat corners, letting the edit-mode
+// toolbar geometry sit flush with the card body.
+function findGridLayoutCards(root, found = []) {
+  if (!root) return found;
+  try {
+    const direct = root.querySelectorAll?.('ha-card.type-custom-grid-layout') || [];
+    for (const el of direct) found.push(el);
+    const all = root.querySelectorAll?.('*') || [];
+    for (const el of all) {
+      if (el.shadowRoot) findGridLayoutCards(el.shadowRoot, found);
+    }
+  } catch (e) {}
+  return found;
+}
+
+function styleGridLayoutCard(el) {
+  if (el.dataset.everydayGridStyled === 'true') return false;
+  el.style.setProperty('border-radius', '0', 'important');
+  el.dataset.everydayGridStyled = 'true';
+  return true;
+}
+
+// v14: BUG-003 fix-v3 - yaml-vars with !important DID NOT win against :host cascade
+// in wa-button's shadow scope (recon 2026-05-11 19:36: --wa-color-brand-fill-loud stayed
+// at HA-default #009ac7 even after `'var(--primary-color) !important'` in :root via yaml).
+// Solution: set the wa-vars inline on each ha-button host element. Inline-style wins
+// over :host{} declarations in any shadow tree (same pattern as dropdown frosted-glass).
+//
+// The 4 vars cover both "brand" variant (Done button: appearance="filled" variant="brand")
+// and "normal/default" variant. Other variants (warning, success, etc.) fall back to HA defaults
+// which is fine.
+function findAllHaButtons(root, found = []) {
+  if (!root) return found;
+  try {
+    const direct = root.querySelectorAll?.('ha-button') || [];
+    for (const el of direct) found.push(el);
+    const all = root.querySelectorAll?.('*') || [];
+    for (const el of all) {
+      if (el.shadowRoot) findAllHaButtons(el.shadowRoot, found);
+    }
+  } catch (e) {}
+  return found;
+}
+
+function styleHaButton(el) {
+  if (el.dataset.everydayButtonStyled === 'true') return false;
+  // Read once from :root - the theme yaml IS setting these tokens, just at low specificity.
+  const cs = getComputedStyle(document.documentElement);
+  const primaryColor = cs.getPropertyValue('--primary-color').trim() || '#001848';
+  const textPrimaryColor = cs.getPropertyValue('--text-primary-color').trim() || '#ffffff';
+  const primaryTextColor = cs.getPropertyValue('--primary-text-color').trim() || '#001034';
+  const haCardBg = cs.getPropertyValue('--ha-card-background').trim() || 'rgba(255,255,255,0.40)';
+  // v15: discovered via live recon that ha-button size="small" appearance="filled"
+  // variant="brand" actually reads from brand-fill-NORMAL (not -loud as initially assumed).
+  // So we set the FULL trio (loud/normal/quiet) for both fill + on. Safe + covers all variants.
+  // brand-* = primary CTAs (Done, Save). on-* = text-color on the brand-fill background.
+  el.style.setProperty('--wa-color-brand-fill-loud', primaryColor, 'important');
+  el.style.setProperty('--wa-color-brand-fill-normal', primaryColor, 'important');
+  el.style.setProperty('--wa-color-brand-fill-quiet', primaryColor, 'important');
+  el.style.setProperty('--wa-color-brand-on-loud', textPrimaryColor, 'important');
+  el.style.setProperty('--wa-color-brand-on-normal', textPrimaryColor, 'important');
+  el.style.setProperty('--wa-color-brand-on-quiet', textPrimaryColor, 'important');
+  // Normal/default variant (non-brand buttons)
+  el.style.setProperty('--wa-color-on-normal', primaryTextColor, 'important');
+  el.style.setProperty('--wa-color-fill-normal', haCardBg, 'important');
+  el.dataset.everydayButtonStyled = 'true';
+  return true;
+}
+
 // Apply inline styles to a div#menu element. Inline wins over
 // adoptedStyleSheets + <style> tags + !important cascade.
 function styleMenu(m) {
@@ -283,14 +370,30 @@ function sweep() {
   }
   inlineTotal += inlineApplied;
 
+  // v13: BUG-004 - inline border-radius:0 on ha-card.type-custom-grid-layout
+  // (Stefan-Befund: card-mod yaml-block from v12 ALSO didn't reach cascade depth)
+  const gridCards = findGridLayoutCards(document);
+  let gridApplied = 0;
+  for (const c of gridCards) {
+    if (styleGridLayoutCard(c)) gridApplied++;
+  }
+
+  // v14: BUG-003 - inline wa-vars on ha-button host (yaml-vars with !important failed
+  // against wa-button's :host cascade)
+  const haButtons = findAllHaButtons(document);
+  let btnApplied = 0;
+  for (const b of haButtons) {
+    if (styleHaButton(b)) btnApplied++;
+  }
+
   if (!firstInlineApplied && inlineApplied > 0) {
     firstInlineApplied = true;
     console.log('[everyday-portal-styles] FIRST inline style applied to div#menu, count=' + inlineApplied);
   }
 
-  if (injectedPopups > 0 || injectedDropdowns > 0 || inlineApplied > 0) {
+  if (injectedPopups > 0 || injectedDropdowns > 0 || inlineApplied > 0 || gridApplied > 0 || btnApplied > 0) {
     lastInjected = Date.now();
-    console.log('[everyday-portal-styles] sweep: popup-style=' + injectedPopups + ' dropdown-style=' + injectedDropdowns + ' inline-menu=' + inlineApplied + ' (found ' + popups.length + ' popups, ' + popovers.length + ' popovers, ' + dropdowns.length + ' dropdowns, ' + menus.length + ' menus, inline-total=' + inlineTotal + ')');
+    console.log('[everyday-portal-styles] sweep: popup-style=' + injectedPopups + ' dropdown-style=' + injectedDropdowns + ' inline-menu=' + inlineApplied + ' grid-cards=' + gridApplied + ' ha-buttons=' + btnApplied + ' (found ' + popups.length + ' popups, ' + popovers.length + ' popovers, ' + dropdowns.length + ' dropdowns, ' + menus.length + ' menus, ' + gridCards.length + ' grid-cards, ' + haButtons.length + ' ha-buttons, inline-total=' + inlineTotal + ')');
   }
 }
 
