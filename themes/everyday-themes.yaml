@@ -1,0 +1,1845 @@
+# Everyday HA Theme Bundle - Iter-3 final picks (2026-05-08)
+#
+# Themes:
+#   1. "Domaine Velvet"      - Yama-Chopan Editorial (Gold #745108) - kept as alt
+#   2. "Glass"               - Hemma upstream (read-only ref)
+#   3. "everyday"           - Iter-3 picked: dark = Vegas Lila (#6b2d8f brand + #FF7E3A active)
+#                              light = Wallpaper Mint (#001848 brand + #58bcb4 active)
+#                              Token-System Layer 1+2, MonoDev font.
+#   4. "everyday-citrus"     - Iter-3 NEW: Citrus Fizz light only (#6b2d8f brand + #ff5e3d active + warm cream surface)
+#   5. "Glass Superpro"      - history-reference (alte Synthwave-Palette)
+---
+Domaine Velvet:
+  # D4 Stefan-Decision 2026-05-10: Beige champagne #f5e6c8 als light-mode Hauptfarbe.
+  # Top-level acts as light-mode fallback (HA-pattern). Dark-mode overrides via modes.dark below.
+  primary-color: '#745108'
+  accent-color: '#745108'
+  dark-primary-color: '#5a3f06'
+  light-primary-color: '#a07a1a'
+  text-primary-color: '#1a1410'
+  primary-text-color: '#1a1410'
+  secondary-text-color: '#5e5448'
+  disabled-text-color: '#9d9180'
+  primary-background-color: '#f5e6c8'  # D4: Stefan-pick beige champagne (was '#fdfaf2')
+  secondary-background-color: '#ede0bf'  # D4: matching darker beige for subviews/modals
+  card-background-color: '#fcf3d9'  # D4: light beige card surface (slight contrast vs page-bg)
+  divider-color: rgba(116, 81, 8, 0.12)
+  mush-card-primary-font-family: '"Domaine Display Narrow", Georgia, serif'
+  mush-card-primary-font-weight: 500
+  mush-card-secondary-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif
+  mush-card-secondary-font-weight: 400
+  paper-font-body1_-_font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif
+  paper-font-headline_-_font-family: '"Domaine Display Narrow", Georgia, serif'
+  paper-font-headline_-_font-weight: '500'
+  paper-font-title_-_font-family: '"Domaine Display Narrow", Georgia, serif'
+  paper-font-title_-_font-weight: '500'
+  paper-font-subhead_-_font-family: '"Domaine Display Narrow", Georgia, serif'
+  primary-font-family: '"Domaine Display Narrow", Georgia, serif'
+  ha-card-header-font-family: '"Domaine Display Narrow", Georgia, serif'
+  ha-card-header-font-weight: '500'
+  bubble-card-primary-font-family: '"Domaine Display Narrow", Georgia, serif'
+  bubble-card-secondary-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif
+  ha-card-border-radius: 33px
+  ha-card-border-width: 0px
+  ha-card-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.76)
+  mush-card-spacing: 12px
+  state-icon-color: '#5e5448'
+  state-icon-active-color: '#745108'
+  state-light-active-color: '#c9920e'
+  paper-item-icon-color: '#5e5448'
+  paper-item-icon-active-color: '#745108'
+  switch-checked-color: '#745108'
+  switch-checked-button-color: '#fcf6cd'
+  switch-checked-track-color: '#a07a1a'
+  slider-color: '#745108'
+  slider-secondary-color: '#a07a1a'
+  modes:
+    dark:
+      primary-color: '#c9920e'
+      accent-color: '#c9920e'
+      dark-primary-color: '#a07a1a'
+      light-primary-color: '#e6b73a'
+      text-primary-color: '#fcf6cd'
+      primary-text-color: '#fcf6cd'
+      secondary-text-color: '#bfb3a0'
+      disabled-text-color: '#6e6557'
+      primary-background-color: '#161310'
+      secondary-background-color: '#1f1c17'
+      card-background-color: '#221e18'
+      divider-color: rgba(252, 246, 205, 0.10)
+      ha-card-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.76)
+      state-icon-color: '#bfb3a0'
+      state-icon-active-color: '#c9920e'
+      state-light-active-color: '#e6b73a'
+      paper-item-icon-color: '#bfb3a0'
+      paper-item-icon-active-color: '#c9920e'
+      switch-checked-color: '#c9920e'
+      switch-checked-button-color: '#221e18'
+      switch-checked-track-color: '#a07a1a'
+      slider-color: '#c9920e'
+      slider-secondary-color: '#a07a1a'
+  card-mod-theme: Domaine Velvet
+  card-mod-root: "@font-face {\n  font-family: \"Domaine Display Narrow\";\n  src: url(\"/local/fonts/domaine/DomaineDispNar-Regular.otf\"\
+    ) format(\"opentype\");\n  font-weight: 400; font-style: normal; font-display: swap;\n}\n@font-face {\n  font-family:\
+    \ \"Domaine Display Narrow\";\n  src: url(\"/local/fonts/domaine/DomaineDispNar-RegularItalic.otf\") format(\"opentype\"\
+    );\n  font-weight: 400; font-style: italic; font-display: swap;\n}\n@font-face {\n  font-family: \"Domaine Display Narrow\"\
+    ;\n  src: url(\"/local/fonts/domaine/DomaineDispNar-Medium.otf\") format(\"opentype\");\n  font-weight: 500; font-style:\
+    \ normal; font-display: swap;\n}\n@font-face {\n  font-family: \"Domaine Display Narrow\";\n  src: url(\"/local/fonts/domaine/DomaineDispNar-MediumItalic.otf\"\
+    ) format(\"opentype\");\n  font-weight: 500; font-style: italic; font-display: swap;\n}\n@font-face {\n  font-family:\
+    \ \"Domaine Display Narrow\";\n  src: url(\"/local/fonts/domaine/DomaineDispNar-Semibold.otf\") format(\"opentype\");\n\
+    \  font-weight: 600; font-style: normal; font-display: swap;\n}\n@font-face {\n  font-family: \"Domaine Display Narrow\"\
+    ;\n  src: url(\"/local/fonts/domaine/DomaineDispNar-Bold.otf\") format(\"opentype\");\n  font-weight: 700; font-style:\
+    \ normal; font-display: swap;\n}\n"
+  card-mod-card: "/* KORREKTUR 2026-04-22 12:15 nach Forum-Research:\n   Mushroom's .primary/.secondary leben im SHADOW DOM\
+    \ von\n   `mushroom-state-info`. Ein Selector wie `ha-card .primary` aus dem\n   Theme-card-mod kann das Shadow DOM NICHT\
+    \ erreichen ohne `$`-Piercing.\n   Deshalb sind font-size + sans-serif hier global sinnlos - muss per-\n   card mit MAP-form\
+    \ `mushroom-state-info$: |` in den Anchors laufen.\n   Theme bleibt simpel: nur ha-card-Properties die via Cascade (Inheritance)\n\
+    \   auch ins Shadow DOM kommen. font-family Domaine inherit → primary.\n   Quelle: HA-Community-Forum 600472 + piitaya/lovelace-mushroom\n\
+    \   state-info.ts Source. */\nha-card {\n  font-family: \"Domaine Display Narrow\", Georgia, serif !important;\n  border-radius:\
+    \ 33px !important;\n  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.76) !important;\n}\n"
+  app-header-background-color: transparent
+  app-header-edit-background-color: transparent
+  app-header-border-bottom: none
+Glass:
+  modes:
+    light:
+      primary-background-color: rgb(50,50,50)
+      secondary-background-color: rgb(40,40,40)
+      ha-card-background: rgba(20,20,20,0.1)
+      ha-card-background-active: rgba(255,255,255,0.3)
+      badge-background: rgba(0,0,0,0.35)
+      text-primary-color: rgba(255,255,255,0.95)
+      secondary-text-color: rgba(240,240,240,0.9)
+      disabled-text-color: rgba(245,245,245,0.65)
+      sidebar-background-color: var(--ha-card-background)
+      sidebar-icon-color: var(--text-primary-color)
+      sidebar-text-color: '#c9c9c9'
+      hemma-entity-background: rgba(50,50,50,0.15)
+      hemma-entity-background-active: rgba(255,255,255,0.25)
+      hemma-entity-name: rgba(255,255,255,0.85)
+      hemma-entity-name-active: rgba(255,255,255,1)
+      hemma-entity-state: rgba(255,255,255,0.75)
+      hemma-entity-state-active: rgba(255,255,255,0.9)
+      hemma-entity-state-active-color: rgba(255,214,0,1)
+      navbar-primary-color: var(--hemma-nav-icon-active)
+      hemma-nav-bg: rgba(0,0,0,0.3)
+      hemma-nav-border: transparent
+      hemma-nav-shadow: 0 14px 18px rgba(0,0,0,0.03)
+      hemma-nav-specular-start: rgba(255,255,255,0.45)
+      hemma-nav-specular-mid: rgba(255,255,255,0.28)
+      hemma-nav-specular-end: rgba(255,255,255,0.45)
+      hemma-nav-inactive-opacity: 0.7
+      hemma-nav-icon: rgba(255,255,255,0.85)
+      hemma-nav-icon-active: rgba(255,255,255,1)
+      hemma-nav-active-fill: rgba(255,255,255,0.3)
+      hemma-popup-bg: rgba(200,200,200,0.1)
+      hemma-popup-specular-start: rgba(255,255,255,0.26)
+      hemma-popup-specular-mid: rgba(255,255,255,0.24)
+      hemma-popup-specular-end: rgba(255,255,255,0.22)
+      hemma-popup-entity-background: rgba(0,0,0,0.4)
+      hemma-popup-entity-hover: rgba(0,0,0,0.5)
+      hemma-card-specular-start: rgba(255,255,255,0.24)
+      hemma-card-specular-mid: rgba(255,255,255,0.16)
+      hemma-card-specular-end: rgba(255,255,255,0.20)
+      hemma-control-off: rgba(0,0,0,0.1)
+      hemma-control-on: rgba(255,255,255,0.2)
+      thermostat-card-off: var(--hemma-control-off)
+      thermostat-card-on: var(--hemma-control-on)
+      hemma-puck-font-color: rgba(255,255,255,.95)
+      hemma-puck-font-color-active: rgba(0,0,0,.6)
+      hemma-puck-icon-color: var(--hemma-entity-state)
+      hemma-puck-icon-color-active: var(--hemma-entity-name-active)
+      hemma-toggle-thumb-active: rgba(80,80,80,0.45)
+      hemma-toggle-thumb-inactive: rgba(255,255,255,0.8)
+      hemma-toggle-border-active: none
+      hemma-toggle-border-inactive: rgba(255,255,255,0.45)
+      ha-card-box-shadow: var(--ha-card-box-shadow-light)
+      button-card-box-shadow: var(--ha-shadow-light)
+      button-card-box-shadow-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-active: var(--ha-shadow-light)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-light-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-light-mobile)
+      ha-color-border-neutral-normal: transparent
+      ha-color-fill-primary-normal-resting: var(--hemma-nav-bg)
+      ha-color-fill-primary-quiet-resting: rgba(100,100,100,0.25)
+      ha-color-fill-primary-quiet-hover: rgba(100,100,100,0.3)
+      ha-color-form-background: var(--ha-card-background)
+      ha-color-form-background-disabled: var(--ha-card-background)
+      ha-color-form-background-hover: var(--ha-card-background)
+      ha-color-text-secondary: var(--secondary-text-color)
+      wa-color-text-quiet: var(--secondary-text-color)
+      mdc-text-field-fill-color: rgba(50,50,50,0.4)
+      mdc-select-fill-color: rgba(50,50,50,0.4)
+      mdc-theme-surface: var(--ha-card-background)
+      md-list-container-color: var(--ha-card-background)
+      dialog-background-color: var(--ha-card-background)
+      ha-dialog-background: rgba(255,255,255,0.1)
+      ha-dialog-surface-background: rgba(255,255,255,0.1)
+    dark:
+      primary-background-color: rgb(40,40,40)
+      secondary-background-color: rgb(20,20,20)
+      ha-card-background: rgba(0,0,0,0.4)
+      ha-card-background-active: rgba(240,240,240,0.07)
+      badge-background: rgba(0,0,0,0.5)
+      text-primary-color: rgba(255,255,255,0.98)
+      secondary-text-color: rgba(240,240,240,0.9)
+      disabled-text-color: rgba(208,208,208,0.5)
+      sidebar-background-color: var(--ha-card-background)
+      sidebar-icon-color: var(--text-primary-color)
+      sidebar-text-color: '#a8a8a8'
+      hemma-entity-background: rgba(0,0,0,.1)
+      hemma-entity-background-active: rgba(255,255,255,0.25)
+      hemma-entity-name: rgba(255,255,255,0.85)
+      hemma-entity-name-active: rgba(255,255,255,1)
+      hemma-entity-state: rgba(255,255,255,0.7)
+      hemma-entity-state-active: rgba(255,255,255,0.8)
+      hemma-entity-state-active-color: rgba(255,214,0,1)
+      navbar-primary-color: var(--hemma-nav-icon-active)
+      hemma-nav-bg: rgba(0,0,0,0.25)
+      hemma-nav-border: transparent
+      hemma-nav-shadow: 0 14px 24px rgba(0,0,0,0.08)
+      hemma-nav-specular-start: rgba(255,255,255,0.3)
+      hemma-nav-specular-mid: rgba(255,255,255,0.20)
+      hemma-nav-specular-end: rgba(255,255,255,0.3)
+      hemma-nav-inactive-opacity: 0.72
+      hemma-nav-icon: rgba(255,255,255,0.96)
+      hemma-nav-icon-active: rgba(255,255,255,0.96)
+      hemma-nav-active-fill: rgba(255,255,255,0.2)
+      hemma-popup-bg: rgba(0,0,0,0.2)
+      hemma-popup-specular-start: rgba(255,255,255,0.28)
+      hemma-popup-specular-mid: rgba(255,255,255,0.22)
+      hemma-popup-specular-end: rgba(255,255,255,0.20)
+      hemma-popup-entity-background: rgba(40, 40, 40, 0.4)
+      hemma-popup-entity-hover: rgba(65, 65, 65, 0.6)
+      hemma-card-specular-start: rgba(255,255,255,0.20)
+      hemma-card-specular-mid: rgba(255,255,255,0.13)
+      hemma-card-specular-end: rgba(255,255,255,0.18)
+      hemma-control-off: rgba(0,0,0,0.2)
+      hemma-control-on: rgba(255,255,255,0.2)
+      thermostat-card-off: var(--hemma-control-off)
+      thermostat-card-on: var(--hemma-control-on)
+      hemma-puck-font-color: rgba(0,0,0,.8)
+      hemma-puck-font-color-active: rgba(0,0,0,.7)
+      hemma-puck-icon-color: var(--hemma-entity-state)
+      hemma-puck-icon-color-active: var(--hemma-entity-name-active)
+      hemma-toggle-thumb-active: rgba(80,80,80,0.45)
+      hemma-toggle-thumb-inactive: rgba(255,255,255,0.8)
+      hemma-toggle-border-active: none
+      hemma-toggle-border-inactive: rgba(255,255,255,0.45)
+      ha-card-box-shadow: var(--ha-card-box-shadow-dark)
+      button-card-box-shadow: var(--ha-shadow-dark)
+      button-card-box-shadow-active: var(--ha-shadow-dark)
+      button-card-box-shadow-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-dark-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-dark-mobile)
+      ha-dialog-background: rgba(0,0,0,0.35)
+      ha-dialog-surface-background: rgba(0,0,0,0.35)
+      ha-color-border-neutral-normal: transparent
+      ha-color-fill-primary-normal-resting: var(--hemma-nav-bg)
+      ha-color-fill-primary-quiet-resting: rgba(100,100,100,0.25)
+      ha-color-fill-primary-quiet-hover: rgba(100,100,100,0.3)
+      ha-color-form-background: var(--ha-card-background)
+      ha-color-form-background-disabled: var(--ha-card-background)
+      ha-color-form-background-hover: var(--ha-card-background)
+      ha-color-text-secondary: var(--secondary-text-color)
+      wa-color-text-quiet: var(--secondary-text-color)
+      mdc-text-field-fill-color: var(--primary-background-color)
+      mdc-select-fill-color: var(--primary-background-color)
+      mdc-theme-surface: var(--ha-card-background)
+      md-list-container-color: var(--ha-card-background)
+      dialog-background-color: var(--ha-card-background)
+  ha-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset -2.5px
+    -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px rgba(255,255,255,0.25)
+
+    '
+  ha-shadow-light-hover: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset
+    -2.5px -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px
+    rgba(255,255,255,0.25), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-light-mobile: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 3px 3px 1px -3px rgba(255,255,255,0.22), inset -3px
+    -3px 1px -3px rgba(255,255,255,0.22), inset 0 10px 18px -16px rgba(255,255,255,0.35), inset 0 -10px 18px -16px rgba(255,255,255,0.35)
+
+    '
+  ha-shadow-dark: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3), inset
+    0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '
+  ha-shadow-dark-hover: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3),
+    inset 0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-dark-mobile: 'inset 3px 3px 1px -3px rgba(140,140,140,0.30), inset -3px -3px 1px -3px rgba(140,140,140,0.30),
+    inset 0 10px 18px -16px rgba(255,255,255,0.30), inset 0 -10px 18px -16px rgba(255,255,255,0.30)
+
+    '
+  ha-card-box-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(255,255,255,0.1), inset
+    -2px -2px 0.5px -2px rgba(255,255,255,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.2)
+
+    '
+  ha-card-box-shadow-dark: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(120,120,120,0.1), inset
+    -3px -3px 1px -3.5px rgba(120,120,120,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '
+  primary-font-family: Hanken Grotesk
+  ha-font-family-body: var(--primary-font-family)
+  ha-card-header-font-family: var(--primary-font-family)
+  primary-color: '#6ebaff'
+  accent-color: '#6ebaff'
+  divider-color: transparent
+  app-theme-color: rgb(0,0,0)
+  state-inactive-color: '#d1d1d1'
+  primary-text-color: '#ffffff'
+  icon-primary-color: currentColor
+  scrollbar-thumb-color: rgba(255,255,255,0.15)
+  lumo-body-text-color: var(--primary-text-color)
+  clear-background-color: var(--ha-card-background)
+  paper-item-icon-color: currentColor
+  rgb-card-background-color: rgb(10,10,10)
+  ha-color-on-primary-normal: var(--primary-color)
+  ha-color-on-neutral-normal: var(--primary-text-color)
+  ha-color-red-40: '#d6314a'
+  ha-color-primary-95: '#9c9c9c'
+  ha-color-neutral-90: transparent
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: var(--primary-text-color)
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  wa-color-neutral-fill-normal: '#ffffff14'
+  wa-color-surface-border: rgba(255,255,255,0.1)
+  wa-color-neutral-fill-quiet: var(--primary-color)
+  wa-color-neutral-border-loud: var(--hemma-nav-border)
+  wa-color-neutral-border-normal: var(--hemma-nav-border)
+  wa-color-neutral-border-quiet: var(--hemma-nav-border)
+  wa-color-neutral-on-loud: rgba(255,255,255,0.95)
+  wa-color-neutral-on-normal: rgba(255,255,255,0.95)
+  wa-color-fill-loud: var(--primary-text-color)
+  wa-color-neutral-fill-loud: var(--primary-text-color)
+  wa-color-on-normal: var(--primary-text-color)
+  wa-color-on-quiet: var(--primary-text-color)
+  wa-color-neutral-on-quiet: var(--primary-text-color)
+  wa-color-text-normal: var(--primary-text-color)
+  ha-border-radius-lg: 12px
+  ha-border-radius-sm: 30px
+  ha-card-features-border-radius: 30px
+  border-end-end-radius: 30px
+  wa-border-radius-m: 24px
+  wa-border-radius-s: 30px
+  wa-border-style: none
+  wa-shadow-m: var(--ha-card-box-shadow)
+  mdc-dialog-scrim-color: rgba(0,0,0,0.5)
+  mdc-button-outline-color: rgba(255,255,255,0.15)
+  mdc-theme-primary: rgb(100,180,255)
+  mdc-shape-small: 30px
+  app-header-background-color: rgba(76,80,84,0.3)
+  app-header-backdrop-filter: blur(10px)
+  app-header-edit-background-color: rgba(0,0,0,0.2)
+  app-header-border-bottom: none
+  ha-dialog-surface-backdrop-filter: blur(15px) saturate(1.2)
+  ha-dialog-surface-background: var(--ha-dialog-background)
+  ha-dialog-scrim-backdrop-filter: none
+  ha-dialog-border-radius: 28px
+  dialog-box-shadow: var(--ha-card-box-shadow)
+  card-background-color: var(--secondary-background-color)
+  paper-listbox-background-color: var(--primary-background-color)
+  ha-card-header-color: var(--primary-text-color)
+  paper-card-background-color: var(--ha-card-background)
+  ha-card-backdrop-filter: blur(20px) saturate(1.2)
+  ha-card-border-color: transparent
+  ha-card-border-radius: 28px
+  ha-card-border-width: 0
+  stack-card-gap: 0px
+  horizontal-stack-card-gap: 10px
+  input-fill-color: rgba(255,255,255,0.06)
+  input-ink-color: rgba(255,255,255,0.8)
+  input-label-ink-color: rgba(255,255,255,0.6)
+  input-idle-line-color: rgba(255,255,255,0.12)
+  input-hover-line-color: rgba(100,180,255,0.5)
+  input-disabled-fill-color: rgba(255,255,255,0.03)
+  input-disabled-ink-color: rgba(255,255,255,0.37)
+  input-dropdown-icon-color: rgba(255,255,255,0.54)
+  codemirror-keyword: rgb(180,130,255)
+  codemirror-number: rgb(100,200,130)
+  codemirror-string: rgb(255,200,100)
+  codemirror-comment: rgba(255,255,255,0.3)
+  codemirror-atom: rgb(100,180,255)
+  codemirror-property: rgb(255,140,100)
+  code-editor-background-color: '#161616'
+  hemma-nav-height: 0px
+  hemma-nav-margin-desktop: 8vw
+  hemma-nav-margin-tablet: 4.3vw
+  hemma-nav-gap-desktop: 50px
+  hemma-nav-gap-tablet: 45px
+  hemma-nav-top-desktop: 60px
+  hemma-nav-top-tablet: 55px
+  hemma-nav-backdrop-filter: blur(15px) saturate(1.2)
+  hemma-popup-br: 25px
+  hemma-popup-blur: blur(20px) saturate(1.1)
+  hemma-popup-shadow: 0 3px 14px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.03)
+  page-gutter-desktop: 8vw
+  page-gutter-tablet: 4vw
+  page-gutter-mobile: 11px
+  header-top-desktop: clamp(300px, 36vh, 400px)
+  header-top-tablet: clamp(140px, 30vh, 320px)
+  header-top-tablet-portrait: clamp(260px, 28vh, 400px)
+  header-top-mobile: clamp(30px, 16vh, 70px)
+  header-top-mobile-nudge: -10px
+  hemma-header-cap-desktop: clamp(260px, 30vh, 380px)
+  hemma-header-cap-tablet: clamp(230px, 28vh, 340px)
+  hemma-header-cap-mobile: clamp(240px, 34vh, 360px)
+  hemma-header-cap-landscape: clamp(170px, 44vh, 240px)
+  hemma-header-temp-nudge: 3px
+  hemma-header-badge-nudge: -7px
+  hemma-header-media-badge-nudge-desktop: 3px
+  hemma-header-media-badge-nudge-mobile: 2px
+  hero-header-gap-desktop: 8px
+  hero-header-gap-tablet: 8px
+  hero-header-gap-mobile: 8px
+  hero-temp-font-size-desktop: 18px
+  hero-temp-font-size-tablet: 16px
+  hero-temp-font-size-mobile: 14px
+  hero-title-size-desktop: clamp(75px, 4.6vw + 8px, 105px)
+  hero-title-size-tablet: clamp(68px, 5.5vw + 8px, 90px)
+  hero-title-size-mobile: clamp(38px, 4vw + 2px, 64px)
+  hero-title-size-landscape: clamp(28px, 4.6vw + 4px, 40px)
+  hero-title-line-height-desktop: 1.18
+  hero-title-line-height-tablet: 1.18
+  hero-title-line-height-mobile: 1.1
+  hero-title-line-height-landscape: 1.1
+  hero-title-letter-spacing-desktop: -2px
+  hero-title-letter-spacing-tablet: -1.5px
+  hero-title-letter-spacing-mobile: -1.2px
+  hero-title-letter-spacing-landscape: -1px
+  hero-title-margin-left-desktop: -2px
+  hero-title-margin-left-tablet: 2px
+  hero-title-margin-left-mobile: 2px
+  hero-title-margin-left-landscape: 2px
+  hero-tint: rgba(55,55,55,0.50)
+  hero-tint-mobile: rgba(80,80,80,0.20)
+  hero-img-blur: 4px
+  hero-img-blur-mobile: 0px
+  hero-img-scale: 1.08
+  hero-img-scale-mobile: 1.0
+  hero-img-saturate: 1.02
+  hero-img-saturate-mobile: 1.0
+  hero-img-brightness: 0.985
+  hero-img-brightness-mobile: 0.85
+  hero-img-saturate-from: 1.0
+  hero-img-brightness-from: 0.97
+  weather-icon-size-mobile: 26px
+  weather-icon-size-tablet: 24px
+  weather-icon-size-desktop: 24px
+  hemma-weather-bottom-nudge: -5px
+  hemma-entity-height-desktop: 200px
+  hemma-entity-inner-pad-desktop: 20px
+  hemma-entity-name-font-desktop: 18px
+  hemma-entity-state-font-desktop: 15px
+  hemma-entity-icon-size-desktop: 34px
+  hemma-entity-rows-desktop: repeat(1, auto)
+  hemma-entity-col-width-desktop: 290px
+  hemma-entity-justify-desktop: start
+  hemma-entity-right-inset-desktop: 0px
+  hemma-entity-bottom-desktop: 20px
+  hemma-entity-shadow-pad-right-desktop: 0px
+  hemma-entity-overflow-y-desktop: hidden
+  hemma-entity-col-width-tablet: 220px
+  hemma-entity-height-tablet: 160px
+  hemma-entity-inner-pad-tablet: 18px
+  hemma-entity-name-font-tablet: 16px
+  hemma-entity-state-font-tablet: 15px
+  hemma-entity-icon-size-tablet: 28px
+  hemma-time-nudge-tablet: 36px
+  hemma-entity-overflow-y-tablet: hidden
+  hemma-entity-col-width-mobile: 180px
+  hemma-entity-height-mobile: 108px
+  hemma-entity-inner-pad-mobile: 14px
+  hemma-entity-name-font-mobile: 14px
+  hemma-entity-state-font-mobile: 14px
+  hemma-time-nudge-mobile: 8px
+  hemma-entity-icon-size-mobile: 26px
+  hemma-entity-mobile-top-gap: -21px
+  hemma-entity-bottom-gap: 0px
+  hemma-entity-col-width-landscape: 160px
+  hemma-entity-height-landscape: 120px
+  hemma-entity-inner-pad-landscape: 14px
+  hemma-entity-name-font-landscape: 13px
+  hemma-entity-state-font-landscape: 12px
+  hemma-entity-icon-size-landscape: 24px
+  hemma-tiles-top-landscape-nudge: 0px
+  hemma-hero-top-landscape-nudge: 16px
+  hemma-entity-picture-inactive-opacity: 0.9
+  hemma-entity-picture-active-opacity: 1
+  hemma-entity-picture-inactive-filter: brightness(0.88) saturate(0.9)
+  hemma-entity-picture-active-filter: none
+  hemma-entity-text-shadow: 0 0 4px rgba(0,0,0,0.1)
+  hemma-entity-header-buffer: 220px
+  badge-blur: 14px
+  badge-br: 9999px
+  badge-active-color: rgba(255,255,255,0.85)
+  badge-title-inactive: rgba(255,255,255,0.75)
+  badge-gap: 10px
+  badge-col-gap: 4px
+  badge-padding: 4px 15px 4px 9px
+  badge-min-height: 50px
+  badge-icon-size: 30px
+  badge-font-size: 15px
+  badge-btn-size: 22px
+  badge-gap-tablet: 10px
+  badge-col-gap-tablet: 4px
+  badge-padding-tablet: 3px 14px 3px 8px
+  badge-min-height-tablet: 50px
+  badge-icon-size-tablet: 30px
+  badge-font-size-tablet: 15px
+  badge-btn-size-tablet: 20px
+  badge-gap-mobile: 10px
+  badge-col-gap-mobile: 4px
+  badge-padding-mobile: 4px 12px 4px 5px
+  badge-min-height-mobile: 43px
+  badge-icon-size-mobile: 24px
+  badge-font-size-mobile: 13px
+  badge-btn-size-mobile: 18px
+  badge-gap-landscape: 10px
+  badge-col-gap-landscape: 4px
+  badge-padding-landscape: 4px 12px 4px 5px
+  badge-min-height-landscape: 38px
+  badge-icon-size-landscape: 24px
+  badge-font-size-landscape: 12px
+  badge-btn-size-landscape: 16px
+  badge-media-icon-size: 38px
+  badge-media-icon-size-tablet: 36px
+  badge-media-icon-size-mobile: 33px
+  badge-media-icon-size-landscape: 28px
+  badge-media-btn-size: 40px
+  badge-media-btn-size-tablet: 40px
+  badge-media-btn-size-mobile: 34px
+  badge-media-btn-size-landscape: 30px
+  badge-media-btn-icon-size: 28px
+  badge-media-btn-icon-size-tablet: 24px
+  badge-media-btn-icon-size-mobile: 20px
+  badge-media-btn-icon-size-landscape: 18px
+  badge-media-max-width-desktop: 640px
+  badge-media-max-width-tablet: 520px
+  badge-media-max-width-mobile: 100%
+  hemma-badge-light-color: '#ffd600'
+  hemma-badge-climate-color: '#00d2e0'
+  hemma-badge-climate-very-cold-color: '#3cd3fe'
+  hemma-badge-temp-very-cold-color: '#0091ff'
+  hemma-badge-temp-cool-color: '#3cd3fe'
+  hemma-badge-temp-comfortable-color: '#67f5a0'
+  hemma-badge-temp-warm-color: '#ffd600'
+  hemma-badge-temp-hot-color: '#ff9230'
+  hemma-badge-temp-very-hot-color: '#ff4245'
+  hemma-badge-air-quality-good-color: '#44e371'
+  hemma-badge-air-quality-moderate-color: '#ffd600'
+  hemma-badge-humidity-dry-color: '#ffb254'
+  hemma-badge-humidity-high-color: '#3cd3fe'
+  hemma-badge-presence-home-color: '#49F08CD9'
+  hemma-badge-presence-away-color: '#ffd600'
+  hemma-badge-media-color: '#ff4d70'
+  state-icon-active-color: rgb(100,180,255)
+  state-icon-color: rgba(255,255,255,0.4)
+  state-on-color: rgb(100,180,255)
+  state-off-color: rgba(255,255,255,0.3)
+  state-light-on-color: rgb(255,210,100)
+  state-light-off-color: rgba(255,255,255,0.3)
+  state-climate-heat-color: rgb(255,140,60)
+  state-climate-cool-color: rgb(100,180,255)
+  state-climate-auto-color: rgb(100,200,130)
+  state-climate-idle-color: rgba(255,255,255,0.3)
+  state-alarm-armed-color: rgb(100,200,130)
+  state-alarm-disarmed-color: rgba(255,255,255,0.3)
+  state-alarm-pending-color: rgb(255,180,60)
+  state-alarm-triggered-color: rgb(255,80,80)
+  state-lock-locked-color: rgb(100,200,130)
+  state-lock-unlocked-color: rgb(255,100,100)
+  state-binary_sensor-active-color: rgb(255,180,60)
+  state-binary_sensor-inactive-color: rgba(255,255,255,0.3)
+  state-sensor-battery-high-color: rgb(100,200,130)
+  state-sensor-battery-low-color: rgb(255,80,80)
+  state-media_player-active-color: rgb(100,180,255)
+  state-media_player-inactive-color: rgba(255,255,255,0.3)
+  state-vacuum-active-color: rgb(100,180,255)
+  state-vacuum-inactive-color: rgba(255,255,255,0.3)
+  paper-slider-knob-color: rgb(100,180,255)
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: rgb(100,180,255)
+  paper-slider-secondary-color: var(--paper-slider-knob-color)
+  paper-slider-container-color: rgba(255,255,255,0.12)
+  paper-slider-font-color: '#000000'
+  ha-slider-background: none
+  mush-control-border-radius: 9999px
+  label-badge-background-color: '#23232e'
+  label-badge-text-color: '#f1f1f1'
+  label-badge-red: rgb(255,80,80)
+  label-badge-green: rgb(100,200,130)
+  label-badge-blue: rgb(100,180,255)
+  label-badge-yellow: rgb(255,200,60)
+  chip-background-color: rgba(255,255,255,0.08)
+  chip-text-color: rgba(255,255,255,0.75)
+  switch-checked-color: rgb(100,180,255)
+  switch-checked-button-color: white
+  switch-checked-track-color: rgba(100,180,255,0.45)
+  switch-unchecked-color: rgba(255,255,255,0.25)
+  switch-unchecked-button-color: rgba(255,255,255,0.6)
+  switch-unchecked-track-color: rgba(255,255,255,0.12)
+  table-row-background-color: rgba(255,255,255,0.03)
+  table-row-alternative-background-color: rgba(255,255,255,0.06)
+  data-table-background-color: transparent
+  markdown-code-background-color: rgba(255,255,255,0.08)
+  trace-line-color: rgb(100,180,255)
+  history-filling-color: rgba(100,180,255,0.15)
+  energy-grid-consumption-color: rgb(100,180,255)
+  energy-grid-return-color: rgb(100,200,130)
+  energy-solar-color: rgb(255,200,60)
+  energy-battery-in-color: rgb(180,130,255)
+  energy-battery-out-color: rgb(255,140,60)
+  energy-gas-color: rgb(255,120,100)
+  card-mod-theme: Glass
+  card-mod-root-yaml: ".: |\n  /* Stefan-Fix 2026-04-25: Hemma rechnet mit Hero-Images hinter den Cards.\n     Ohne uix-Hero-Setup\
+    \ wird das Theme nur grau (rgb(40,40,40)). Wir geben\n     dem Body einen subtilen Radial-Gradient als Glassmorphism-Backdrop\
+    \ -\n     dunkelblau-zu-schwarz, ohne Brand-Farben (Brand kommt via Glass Superpro).\n     Stefan kann später ein Custom-Bg\
+    \ via uix-view-background per View setzen. */\n  html, body {\n    background:\n      radial-gradient(ellipse at 20% 0%,\
+    \ #1e2a4a 0%, transparent 55%),\n      radial-gradient(ellipse at 80% 100%, #2a1e3a 0%, transparent 60%),\n      linear-gradient(180deg,\
+    \ #0f1116 0%, #06080c 100%) !important;\n    background-attachment: fixed !important;\n  }\n\n  home-assistant-main,\n\
+    \  ha-panel-lovelace,\n  hui-root,\n  ha-app-layout {\n    background: transparent !important;\n  }\n\n  @media (max-width:\
+    \ 767px) and (orientation: portrait) {\n    html, body {\n      overflow-x: hidden !important;\n      overscroll-behavior-x:\
+    \ none !important;\n    }\n\n    home-assistant,\n    home-assistant-main,\n    ha-panel-lovelace,\n    hui-root {\n \
+    \     overflow-x: hidden !important;\n      overscroll-behavior: none !important;\n    }\n\n    ha-panel-lovelace,\n \
+    \   hui-root,\n    ha-app-layout,\n    #view,\n    hui-view,\n    hui-view-container {\n      touch-action: pan-y !important;\n\
+    \    }\n  }\n\n  html, body {\n    overflow-x: hidden !important;\n    overscroll-behavior-x: none !important;\n    max-width:\
+    \ 100vw !important;\n  }\n\n  home-assistant,\n  home-assistant-main,\n  ha-panel-lovelace,\n  hui-root,\n  ha-app-layout,\n\
+    \  #view,\n  hui-view,\n  hui-view-container {\n    overflow-x: hidden !important;\n    max-width: 100vw !important;\n\
+    \  }\n\n  :host, ha-app-layout {\n    --hemma-header-offset: var(--app-header-height, var(--header-height, 0px));\n  \
+    \  color-scheme: dark;\n  }\n\n\n  body.kiosk-mode,\n  ha-panel-lovelace.kiosk-mode,\n  ha-panel-lovelace[is-kiosk],\n\
+    \  ha-app-layout.kiosk-mode,\n  ha-app-layout[is-kiosk]{\n    --hemma-header-offset: 0px !important;\n  }\n\n  :not(.edit-mode)\
+    \ > hui-view::after,\n  :not(.edit-mode) > hui-view:after {\n    display: none !important;\n  }\n\n  ha-card.navbar-card.desktop.bottom.docked.type-custom-navbar-card{\n\
+    \    display: none !important;\n    height: 0 !important;\n    min-height: 0 !important;\n    padding: 0 !important;\n\
+    \    margin: 0 !important;\n    border: 0 !important;\n    box-shadow: none !important;\n    overflow: hidden !important;\n\
+    \  }\n\n  ha-more-info-dialog,\n  ha-dialog {\n    --vertical-align-dialog: flex-end;\n    --dialog-surface-margin-top:\
+    \ 15vh;\n  }\n\n  ha-more-info-dialog .mdc-dialog,\n  ha-dialog .mdc-dialog {\n    align-items: center !important;\n \
+    \   justify-content: center !important;\n  }\n\n  ha-more-info-dialog .mdc-dialog__container,\n  ha-dialog .mdc-dialog__container\
+    \ {\n    align-items: center !important;\n    justify-content: center !important;\n    margin-top: 10vh !important;\n\
+    \  }\n\n  ha-more-info-dialog .mdc-dialog__surface,\n  ha-dialog .mdc-dialog__surface {\n    margin-top: auto !important;\n\
+    \    margin-bottom: auto !important;\n  }\n\n  @media (max-width: 767px) {\n    ha-more-info-dialog .mdc-dialog__container,\n\
+    \    ha-dialog .mdc-dialog__container {\n      align-items: flex-end !important;\n      justify-content: flex-end !important;\n\
+    \      margin-top: 0 !important;\n    }\n\n    ha-more-info-dialog .mdc-dialog__surface,\n    ha-dialog .mdc-dialog__surface\
+    \ {\n      margin-top: auto !important;\n      margin-bottom: 0 !important;\n    }\n  }\n\n  layout-card{\n    --layout-margin:\
+    \ 0px !important;\n    --layout-padding: 0px !important;\n    --layout-height: auto !important;\n    --layout-overflow:\
+    \ visible !important;\n    --ha-card-backdrop-filter: none;\n    --ha-card-background: transparent;\n    --ha-card-box-shadow:\
+    \ none;\n    --ha-card-border-color: transparent;\n    --ha-card-border-width: 0px;\n  }\n\n  navbar-card{\n    --ha-card-backdrop-filter:\
+    \ none;\n    --ha-card-background: transparent;\n    --ha-card-box-shadow: none;\n    --ha-card-border-color: transparent;\n\
+    \    --ha-card-border-width: 0px;\n  }\n\n  grid-layout {\n    --masonry-view-card-margin: 0px;\n  }\n\n  layout-card$\
+    \ #container{\n    height: auto !important;\n    min-height: 0 !important;\n    align-items: flex-start !important;\n\
+    \    justify-content: flex-start !important;\n  }\n\n  layout-card$ #container > *{\n    min-height: 0 !important;\n \
+    \ }\n\n  ha-dropdown {\n    --wa-color-surface-raised: var(--ha-card-background) !important;\n  }\n\n  ha-dropdown::part(menu)\
+    \ {\n    backdrop-filter: blur(20px) saturate(1.02) !important;\n    -webkit-backdrop-filter: blur(20px) saturate(1.02)\
+    \ !important;\n  }\n\n  .mdc-data-table {\n    border-radius: 0px !important;\n  }\n\n  /* Desktop */\n  html,\n  :host,\n\
+    \  ha-app-layout {\n    --page-gutter: var(--page-gutter-desktop);\n    --hemma-rail-left: var(--page-gutter-desktop);\n\
+    \    --content-rail: var(--hemma-rail-left);\n    --hero-top: var(--header-top-desktop);\n    --hero-gutter: var(--page-gutter-desktop);\n\
+    \    --hero-header-gap-current: var(--hero-header-gap-desktop, 6px);\n    --hero-temp-font-size: var(--hero-temp-font-size-desktop,\
+    \ 18px);\n    --hemma-header-stack-h-current: var(--hemma-header-cap-desktop, clamp(260px, 30vh, 380px));\n    --hemma-header-media-badge-nudge-current:\
+    \ var(--hemma-header-media-badge-nudge-desktop, 3px);\n    --hemma-nav-margin-current: var(--hemma-nav-margin-desktop,\
+    \ 8vw);\n    --hemma-nav-gap-current: var(--hemma-nav-gap-desktop, 50px);\n    --hemma-nav-top-current: var(--hemma-nav-top-desktop,\
+    \ 60px);\n    --hero-room-name-size-current: var(--hero-title-size-desktop, clamp(75px, 4.6vw + 8px, 105px));\n    --hero-room-name-line-height-current:\
+    \ var(--hero-title-line-height-desktop, 1.18);\n    --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-desktop,\
+    \ -2px);\n    --hero-room-name-margin-left-current: var(--hero-title-margin-left-desktop, -2px);\n    --badge-media-max-width-current:\
+    \ var(--badge-media-max-width-desktop, 640px);\n    --badge-gap-current: var(--badge-gap, 10px);\n    --badge-col-gap-current:\
+    \ var(--badge-col-gap, 4px);\n    --badge-padding-current: var(--badge-padding, 4px 15px 4px 9px);\n    --badge-min-height-current:\
+    \ var(--badge-min-height, 50px);\n    --badge-icon-size-current: var(--badge-icon-size, 30px);\n    --badge-font-size-current:\
+    \ var(--badge-font-size, 15px);\n    --badge-btn-size-current: var(--badge-btn-size, 22px);\n    --badge-media-icon-size-current:\
+    \ var(--badge-media-icon-size, 38px);\n    --badge-media-btn-size-current: var(--badge-media-btn-size, 40px);\n    --badge-media-btn-icon-size-current:\
+    \ var(--badge-media-btn-icon-size, 28px);\n    --hemma-entity-col-width-current: var(--hemma-entity-col-width-desktop,\
+    \ 280px);\n    --hemma-entity-height-current: var(--hemma-entity-height-desktop, 180px);\n    --hemma-entity-rows-current:\
+    \ var(--hemma-entity-rows-desktop, repeat(1, auto));\n    --hemma-entity-justify-current: var(--hemma-entity-justify-desktop,\
+    \ flex-start);\n    --hemma-entity-right-inset-current: var(--hemma-entity-right-inset-desktop, 0px);\n    --hemma-entity-left-inset-current:\
+    \ var(--hemma-rail-left, var(--page-gutter, 8vw));\n    --hemma-entity-bottom-current: var(--hemma-entity-bottom-desktop,\
+    \ 20px);\n    --hemma-entity-shadow-pad-right-current: var(--hemma-entity-shadow-pad-right-desktop, 0px);\n    --hemma-entity-overflow-y-current:\
+    \ var(--hemma-entity-overflow-y-desktop, hidden);\n    --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-desktop,\
+    \ 20px);\n    --hemma-entity-name-font-current: var(--hemma-entity-name-font-desktop, 18px);\n    --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-desktop, 15px);\n    --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-desktop,\
+    \ 34px);\n    --hemma-button-card-box-shadow-current: var(--button-card-box-shadow);\n    --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active);\n    --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover);\n\
+    \  }\n\n  /* Tablet */\n  @media (min-width: 768px) and (max-width: 1366px) and (min-height: 501px) and (hover: none)\
+    \ and (pointer: coarse) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter: var(--page-gutter-tablet);\n\
+    \      --hemma-rail-left: var(--page-gutter-tablet);\n      --content-rail: var(--hemma-rail-left);\n      --hero-top:\
+    \ var(--header-top-tablet);\n      --hero-gutter: var(--page-gutter-tablet);\n      --hero-header-gap-current: var(--hero-header-gap-tablet,\
+    \ 6px);\n      --hero-temp-font-size: var(--hero-temp-font-size-tablet, 16px);\n      --hemma-header-stack-h-current:\
+    \ var(--hemma-header-cap-tablet, clamp(230px, 28vh, 340px));\n      --hemma-nav-margin-current: var(--hemma-nav-margin-tablet,\
+    \ 4.3vw);\n      --hemma-nav-gap-current: var(--hemma-nav-gap-tablet, 45px);\n      --hemma-nav-top-current: var(--hemma-nav-top-tablet,\
+    \ 55px);\n      --hero-room-name-size-current: var(--hero-title-size-tablet, clamp(36px, 4.2vw + 6px, 64px));\n      --hero-room-name-line-height-current:\
+    \ var(--hero-title-line-height-tablet, 1.18);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-tablet,\
+    \ -1.5px);\n      --hero-room-name-margin-left-current: var(--hero-title-margin-left-tablet, -1px);\n      --badge-media-max-width-current:\
+    \ var(--badge-media-max-width-tablet, 520px);\n      --badge-gap-current: var(--badge-gap-tablet, var(--badge-gap, 10px));\n\
+    \      --badge-col-gap-current: var(--badge-col-gap-tablet, var(--badge-col-gap, 4px));\n      --badge-padding-current:\
+    \ var(--badge-padding-tablet, var(--badge-padding, 4px 15px 4px 9px));\n      --badge-min-height-current: var(--badge-min-height-tablet,\
+    \ var(--badge-min-height, 50px));\n      --badge-icon-size-current: var(--badge-icon-size-tablet, var(--badge-icon-size,\
+    \ 30px));\n      --badge-font-size-current: var(--badge-font-size-tablet, var(--badge-font-size, 15px));\n      --badge-btn-size-current:\
+    \ var(--badge-btn-size-tablet, var(--badge-btn-size, 22px));\n      --badge-media-icon-size-current: var(--badge-media-icon-size-tablet,\
+    \ var(--badge-media-icon-size, 38px));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-tablet, var(--badge-media-btn-size,\
+    \ 40px));\n      --badge-media-btn-icon-size-current: var(--badge-media-btn-icon-size-tablet, var(--badge-media-btn-icon-size,\
+    \ 24px));\n      --hemma-entity-col-width-current: var(--hemma-entity-col-width-tablet, 210px);\n      --hemma-entity-height-current:\
+    \ var(--hemma-entity-height-tablet, 150px);\n      --hemma-entity-overflow-y-current: var(--hemma-entity-overflow-y-tablet,\
+    \ var(--hemma-entity-overflow-y-desktop, hidden));\n      --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-tablet,\
+    \ 18px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-tablet, 15px);\n      --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-tablet, 13px);\n      --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-tablet,\
+    \ 28px);\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow);\n      --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active);\n      --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover);\n\
+    \    }\n  }\n\n  /* Tablet Portrait */\n  @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait)\
+    \ and (min-height: 501px) and (hover: none) and (pointer: coarse) {\n    html,\n    :host,\n    ha-app-layout {\n    \
+    \  --hero-top: var(--header-top-tablet-portrait);\n    }\n  }\n\n  /* Mobile Portrait */\n  @media (max-width: 767px)\
+    \ and (orientation: portrait) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter: var(--page-gutter-mobile);\n\
+    \      --hemma-rail-left: var(--page-gutter-mobile);\n      --content-rail: var(--hemma-rail-left);\n      --hero-top:\
+    \ calc(var(--header-top-mobile) - var(--header-top-mobile-nudge, 0px));\n      --hero-gutter: var(--page-gutter-mobile);\n\
+    \      --hero-header-gap-current: var(--hero-header-gap-mobile, 5px);\n      --hero-temp-font-size: var(--hero-temp-font-size-mobile,\
+    \ 14px);\n      --hemma-header-stack-h-current: var(--hemma-header-cap-mobile, clamp(240px, 34vh, 360px));\n      --hero-room-name-size-current:\
+    \ var(--hero-title-size-mobile, clamp(38px, 4vw + 2px, 64px));\n      --hero-room-name-line-height-current: var(--hero-title-line-height-mobile,\
+    \ 1.20);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-mobile, -1.2px);\n      --hero-room-name-margin-left-current:\
+    \ var(--hero-title-margin-left-mobile, 2px);\n      --hemma-header-media-badge-nudge-current: var(--hemma-header-media-badge-nudge-mobile,\
+    \ 0px);\n      --badge-media-max-width-current: var(--badge-media-max-width-mobile, 100%);\n      --badge-gap-current:\
+    \ var(--badge-gap-mobile, var(--badge-gap, 10px));\n      --badge-col-gap-current: var(--badge-col-gap-mobile, var(--badge-col-gap,\
+    \ 4px));\n      --badge-padding-current: var(--badge-padding-mobile, var(--badge-padding, 4px 10px 4px 7px));\n      --badge-min-height-current:\
+    \ var(--badge-min-height-mobile, var(--badge-min-height, 50px));\n      --badge-icon-size-current: var(--badge-icon-size-mobile,\
+    \ var(--badge-icon-size, 30px));\n      --badge-font-size-current: var(--badge-font-size-mobile, var(--badge-font-size,\
+    \ 15px));\n      --badge-btn-size-current: var(--badge-btn-size-mobile, var(--badge-btn-size, 22px));\n      --badge-media-icon-size-current:\
+    \ var(--badge-media-icon-size-mobile, var(--badge-media-icon-size, 32px));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-mobile,\
+    \ var(--badge-media-btn-size, 34px));\n      --badge-media-btn-icon-size-current: var(--badge-media-btn-icon-size-mobile,\
+    \ var(--badge-media-btn-icon-size, 20px));\n      --hemma-entity-col-width-current: var(--hemma-entity-col-width-mobile,\
+    \ 180px);\n      --hemma-entity-height-current: var(--hemma-entity-height-mobile, 115px);\n      --hemma-entity-inner-pad-current:\
+    \ var(--hemma-entity-inner-pad-mobile, 14px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-mobile,\
+    \ 14px);\n      --hemma-entity-state-font-current: var(--hemma-entity-state-font-mobile, 14px);\n      --hemma-entity-icon-size-current:\
+    \ var(--hemma-entity-icon-size-mobile, 26px);\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow-mobile);\n\
+    \      --hemma-button-card-box-shadow-active-current: var(--button-card-box-shadow-active-mobile);\n      --hemma-button-card-box-shadow-hover-current:\
+    \ var(--button-card-box-shadow-hover-mobile);\n    }\n\n    app-header ha-menu-button,\n    app-toolbar ha-menu-button{\n\
+    \      display: none !important;\n    }\n  }\n\n  /* Mobile Landscape */\n  @media (hover: none) and (pointer: coarse)\
+    \ and (orientation: landscape) and (max-height: 600px) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter:\
+    \ var(--page-gutter-mobile);\n      --hemma-rail-left: var(--page-gutter-mobile);\n      --content-rail: var(--hemma-rail-left);\n\
+    \      --hero-gutter: 18px;\n      --hero-top: calc(env(safe-area-inset-top, 0px) + 96px + var(--hemma-hero-top-landscape-nudge,\
+    \ 0px));\n      --hemma-tiles-top-landscape: calc(var(--hero-top) + var(--hemma-tiles-top-landscape-nudge, 0px));\n  \
+    \    --hemma-entity-col-width-current: var(--hemma-entity-col-width-landscape, 200px);\n      --hemma-entity-height-current:\
+    \ var(--hemma-entity-height-landscape, 110px);\n      --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-landscape,\
+    \ 14px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-landscape, 13px);\n      --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-landscape, 12px);\n      --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-landscape,\
+    \ 24px);\n      --hemma-landscape-left-rail: clamp(240px, 34vw, 320px);\n      --hemma-landscape-badge-stop-pad: 12px;\n\
+    \      --badge-media-max-width-current: calc(var(--hemma-landscape-left-rail) - var(--hemma-landscape-badge-stop-pad));\n\
+    \      --hemma-header-stack-h-current: var(--hemma-header-cap-landscape, clamp(170px, 44vh, 240px));\n      --hero-room-name-size-current:\
+    \ var(--hero-title-size-landscape, clamp(28px, 4.6vw + 4px, 40px));\n      --hero-room-name-line-height-current: var(--hero-title-line-height-landscape,\
+    \ 1.12);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-landscape, -1px);\n      --hero-room-name-margin-left-current:\
+    \ var(--hero-title-margin-left-landscape, var(--hero-room-name-margin-left-current, 0px));\n      --badge-gap-current:\
+    \ var(--badge-gap-landscape, var(--badge-gap-mobile, var(--badge-gap, 10px)));\n      --badge-col-gap-current: var(--badge-col-gap-landscape,\
+    \ var(--badge-col-gap-mobile, var(--badge-col-gap, 4px)));\n      --badge-padding-current: var(--badge-padding-landscape,\
+    \ var(--badge-padding-mobile, var(--badge-padding, 1px 14px 1px 6px)));\n      --badge-min-height-current: var(--badge-min-height-landscape,\
+    \ var(--badge-min-height-mobile, var(--badge-min-height, 43px)));\n      --badge-icon-size-current: var(--badge-icon-size-landscape,\
+    \ var(--badge-icon-size-mobile, var(--badge-icon-size, 30px)));\n      --badge-font-size-current: var(--badge-font-size-landscape,\
+    \ var(--badge-font-size-mobile, var(--badge-font-size, 13px)));\n      --badge-btn-size-current: var(--badge-btn-size-landscape,\
+    \ var(--badge-btn-size-mobile, var(--badge-btn-size, 18px)));\n      --badge-media-icon-size-current: var(--badge-media-icon-size-landscape,\
+    \ var(--badge-media-icon-size-mobile, var(--badge-media-icon-size, 28px)));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-landscape,\
+    \ var(--badge-media-btn-size-mobile, var(--badge-media-btn-size, 30px)));\n      --badge-media-btn-icon-size-current:\
+    \ var(--badge-media-btn-icon-size-landscape, var(--badge-media-btn-icon-size-mobile, var(--badge-media-btn-icon-size,\
+    \ 18px)));\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow-mobile);\n      --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active-mobile);\n      --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover-mobile);\n\
+    \    }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    .m__run, .eq .b { animation: none !important; }\n  }\n\
+    \n  .hemma-entities,\n  .hemma-entities > div {\n    scrollbar-width: none;\n    -ms-overflow-style: none;\n  }\n  .hemma-entities::-webkit-scrollbar,\n\
+    \  .hemma-entities > div::-webkit-scrollbar {\n    width: 0 !important;\n    height: 0 !important;\n    background: transparent\
+    \ !important;\n  }\n\n  app-header,\n  app-toolbar {\n    background: transparent;\n    backdrop-filter: blur(10px);\n\
+    \    -webkit-backdrop-filter: blur(10px);\n  }\n\n  ha-card {\n    transition: filter .2s ease, opacity .2s ease;\n  }\n\
+    \n  @media (min-width: 768px) and (max-width: 1249px) and (orientation: portrait) and (hover: none){\n    :host, ha-app-layout{\n\
+    \      --hemma-entity-bottom-current: 0px;\n      --hemma-time-opacity: 0.4;\n    }\n  }\n  @media (min-width: 768px)\
+    \ and (max-width: 1249px) and (orientation: landscape) and (hover: none){\n    :host, ha-app-layout{\n      --hemma-entity-bottom-current:\
+    \ 12px;\n      --hemma-time-opacity: 0.4;\n    }\n  }\n\n\nha-more-info-dialog: |\n  ha-adaptive-dialog {\n    --wa-color-fill-loud:\
+    \ var(--primary-text-color, white);\n    --wa-color-neutral-fill-loud: var(--primary-text-color, white);\n    --wa-color-on-normal:\
+    \ var(--primary-text-color, white);\n    --wa-color-on-quiet: var(--primary-text-color, white);\n    --wa-color-neutral-on-quiet:\
+    \ var(--primary-text-color, white);\n    --wa-color-text-normal: var(--primary-text-color, white);\n    color: var(--primary-text-color,\
+    \ white);\n  }\n\n  .content-wrapper {\n    color: var(--primary-text-color, white);\n  }\n\nha-adaptive-dialog: |\n \
+    \ wa-drawer,\n  wa-popup,\n  wa-dialog {\n    --wa-color-fill-loud: var(--primary-text-color, white);\n    --wa-color-neutral-fill-loud:\
+    \ var(--primary-text-color, white);\n    --wa-color-on-normal: var(--primary-text-color, white);\n    --wa-color-on-quiet:\
+    \ var(--primary-text-color, white);\n    --wa-color-neutral-on-quiet: var(--primary-text-color, white);\n    --wa-color-text-normal:\
+    \ var(--primary-text-color, white);\n    color: var(--primary-text-color, white);\n  }\n"
+  card-mod-sidebar-yaml: ".: |\n  :host {\n    background: none !important;\n    box-shadow: none !important;\n    border:\
+    \ 0 !important;\n    outline: none !important;\n  }\n\n  .menu {\n    border-bottom: 0 !important;\n    box-shadow: none\
+    \ !important;\n  }\n\n  ha-md-list-item,\n  ha-md-list-item.selected::before {\n    border-radius: var(--ha-card-border-radius)\
+    \ !important;\n  }\n\n  @media (hover: none) {\n    ha-md-list-item {\n      --md-list-item-hover-state-layer-opacity:\
+    \ 0 !important;\n      --ha-ripple-hover-opacity: 0 !important;\n    }\n  }\n"
+  card-mod-drawer: ".mdc-drawer {\n  background-color: var(--sidebar-background-color) !important;\n  backdrop-filter: blur(20px)\
+    \ saturate(1.2);\n  -webkit-backdrop-filter: blur(20px) saturate(1.2);\n  border-right: none !important;\n  box-shadow:\
+    \ none !important;\n}\n"
+  card-mod-view-yaml: "hui-view:\n  $: |\n    :host {\n      background: none !important;\n    }\n\nha-card:\n  $: |\n   \
+    \ :host {\n      --mdc-ripple-press-opacity: 0 !important;\n      --mdc-ripple-hover-opacity: 0 !important;\n      --mdc-ripple-focus-opacity:\
+    \ 0 !important;\n      --mdc-ripple-color: transparent !important;\n      -webkit-tap-highlight-color: transparent !important;\n\
+    \    }\n"
+  card-mod-card: "ha-card {\n  background: var(--ha-card-background, rgba(0,0,0,0.2));\n  border-radius: var(--ha-card-border-radius,\
+    \ 16px);\n  transition: filter .22s ease, transform .12s ease !important;\n  will-change: filter, transform;\n}\n\n@media\
+    \ (hover:hover) {\n  ha-card:not(.type-custom-navbar-card):hover {\n    box-shadow: var(--hemma-button-card-box-shadow-hover-current,\
+    \ var(--button-card-box-shadow-hover, var(--ha-shadow-light-hover))) !important;\n  }\n  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):hover,\n\
+    \  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):focus-within {\n    filter: var(--hemma-hover-filter,\
+    \ brightness(1.10)) !important;\n  }\n}\n\n@media (hover:none) {\n  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):active\
+    \ {\n    filter: var(--hemma-hover-filter, brightness(1.12)) !important;\n    box-shadow: var(--hemma-button-card-box-shadow-hover-current,\
+    \ var(--button-card-box-shadow-hover-mobile)) !important;\n  }\n}\n\n:host(.hemma-entity) {\n  position: relative !important;\n\
+    \  z-index: 0 !important;\n  display: block !important;\n  border-radius: var(--ha-card-border-radius, 28px) !important;\n\
+    \  overflow: visible !important;\n  contain: none !important;\n}\n\n:host(.hemma-entity) ha-card {\n  position: relative\
+    \ !important;\n  z-index: 0 !important;\n  border-radius: inherit !important;\n  overflow: hidden !important;\n  background-clip:\
+    \ padding-box;\n}\n\n:host(.hemma-entity) ha-card:active {\n  transform: translateY(.5px);\n  backface-visibility: hidden;\n\
+    \  will-change: transform;\n}\n\n:host(.hemma-hero),\n:host(.hemma-hero) ha-card,\n:host(.hemma-hero) .button-card-main,\n\
+    :host(.hemma-hero) .button-card-content{\n  direction: ltr !important;\n  text-align: left !important;\n}\n\n/* Energy\
+    \ dashboard */\n.mdc-data-table,\n.mdc-data-table__row,\n.mdc-data-table__header-cell,\nha-sankey-chart {\n  background:\
+    \ none !important;\n}\n"
+  uix-theme: Glass
+  uix-drawer: ".mdc-drawer {\n  background-color: var(--sidebar-background-color) !important;\n  backdrop-filter: blur(20px)\
+    \ saturate(1.2);\n  -webkit-backdrop-filter: blur(20px) saturate(1.2);\n  border-right: none !important;\n  box-shadow:\
+    \ none !important;\n}\n:host {\n  {%- if panel.viewUrlPath == 'electricity' -%}\n  --uix-view-background-cover: full;\n\
+    \  --uix-view-background: linear-gradient(rgba(55,55,55,0.50),rgba(55,55,55,0.50)),center/cover no-repeat url('/local/hemma/rooms/home.jpg')\n\
+    \  {%- endif -%};\n}\n@media (prefers-color-scheme: dark) {\n  :host {\n    {%- if panel.viewUrlPath == 'electricity'\
+    \ -%}\n    --uix-view-background: linear-gradient(rgba(55,55,55,0.50),rgba(55,55,55,0.50)),center/cover no-repeat url('/local/hemma/rooms/home-night.jpg')\n\
+    \    {%- endif -%};\n  }\n}\n@media (max-width: 767px) {\n  :host {\n    {%- if panel.viewUrlPath == 'electricity' -%}\n\
+    \    --uix-view-background: linear-gradient(rgba(80,80,80,0.20),rgba(80,80,80,0.20)),center/cover no-repeat url('/local/hemma/mobile/mobile-day.jpg')\n\
+    \    {%- endif -%};\n  }\n}\n@media (max-width: 767px) and (prefers-color-scheme: dark) {\n  :host {\n    {%- if panel.viewUrlPath\
+    \ == 'electricity' -%}\n    --uix-view-background: linear-gradient(rgba(80,80,80,0.20),rgba(80,80,80,0.20)),center/cover\
+    \ no-repeat url('/local/hemma/mobile/mobile-day-dark.jpg')\n    {%- endif -%};\n  }\n}\n"
+  uix-view-background: ".uix-bg-image {\n  filter: blur(4px) saturate(1.02) brightness(0.985);\n}\n@media (max-width: 767px)\
+    \ {\n  .uix-bg-image {\n    filter: saturate(1.00) brightness(0.85);\n  }\n}\n"
+everyday:
+  modes:
+    dark:
+      # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
+      # frosted-glass injection. Without this var, other themes (default, Glass,
+      # Domaine Velvet) would get frosted-glass dropdowns too (script runs globally).
+      everyday-frosted-portals: 'true'
+      surface-page: '#151023'
+      # iOS Notch tint via --app-theme-color was tried 2026-05-10 (#0a0518 surface-deepest) - too dark per Stefan.
+      # Reverted; HA-iOS falls back to --app-header-background-color rgba alpha which gives subtle tint.
+      # Wallpaper-show-through in Notch requires HA-Core PR (apple-mobile-web-app-status-bar-style: black-translucent).
+      # ha-dropdown defines --wa-color-surface-raised on :host via var(--card-background-color, ...) fallback chain.
+      # :host wins over :root by default - need !important on :root variable to override (Stefan-DevTools-audit 2026-05-10).
+      # Stefan-Decision: alpha 1.0 (fully opaque) so dropdown isn't transparent on /profile pages.
+      # Direct CSS variable injection via 'theme: {key: value}' yaml - HA wraps this in :root rule.
+      wa-color-surface-raised: 'rgb(20,12,32) !important'
+      # Override the fallback chain trigger too (--card-background-color is var(--surface-color) below) for ha-dropdown context.
+      # Lower alpha (was 0.62) gives the Hemma-style frosted-glass look when ha-card-backdrop-filter is applied.
+      surface-color: rgba(40,22,64,0.35)
+      surface-elevated: rgba(80,36,120,0.55)
+      surface-deepest: '#0a0518'
+      brand-color: '#6b2d8f'
+      active-color: '#FF7E3A'
+      secondary-accent: '#FF80BF'
+      inactive-color: rgba(107,45,143,0.30)
+      text-primary: '#FFE8FF'
+      text-secondary: rgba(245,220,255,0.74)
+      text-disabled: rgba(220,200,240,0.42)
+      shadow-soft: 0 1px 3px rgba(0,0,0,0.5)
+      shadow-strong: 0 14px 40px rgba(40,0,60,0.6)
+      blur-glass: blur(28px) saturate(1.6)
+      state-warning: '#FFCA80'
+      state-error: '#FF9580'
+      state-success: '#8AFF80'
+      state-info: '#80FFEA'
+      state-purple: '#9580FF'
+      state-yellow: '#FFFF80'
+      state-blue: '#5da3f4'
+      primary-color: var(--brand-color)
+      accent-color: var(--active-color)
+      primary-background-color: var(--surface-page)
+      secondary-background-color: var(--surface-page)
+      # Stefan-Decision 2026-05-10: --card-background-color semi-transparent rgba für Glass-Look.
+      # Backdrop-filter blur applied via card-mod shadow piercing below (works in lovelace).
+      # Auf /profile/general kann card-mod nicht reichen - dort bleibt nur das rgba sichtbar (kein blur).
+      card-background-color: rgba(20,12,32,0.65)
+      ha-card-background: var(--surface-color)
+      ha-card-background-active: var(--surface-elevated)
+      divider-color: rgba(255,255,255,0.08)
+      primary-text-color: var(--text-primary)
+      # text-primary-color = "text on primary-color background" (HA convention).
+      # primary-color is brand-color (#6b2d8f purple dark / #001848 navy light) - both dark.
+      # Therefore on-primary text = white in BOTH modes. (BUG-002 fix 2026-05-11)
+      text-primary-color: '#ffffff'
+      secondary-text-color: var(--text-secondary)
+      disabled-text-color: var(--text-disabled)
+      state-active-color: var(--active-color)
+      state-inactive-color: var(--inactive-color)
+      state-icon-active-color: var(--active-color)
+      state-icon-color: var(--text-secondary)
+      state-light-on-color: var(--active-color)
+      state-light-off-color: var(--inactive-color)
+      state-on-color: var(--state-success)
+      state-off-color: var(--inactive-color)
+      paper-item-icon-active-color: var(--active-color)
+      paper-item-icon-color: var(--text-secondary)
+      paper-listbox-background-color: var(--surface-color)
+      # BUG-002 fix 2026-05-11: M3 + MDC button vars - HA defaults give light-blue/cyan tonal buttons
+      # (Material 3 baseline). Tie all button surfaces to everyday brand tokens.
+      mdc-theme-primary: var(--primary-color)
+      mdc-theme-on-primary: var(--text-primary-color)
+      mdc-theme-on-surface: var(--primary-text-color)
+      # M3 filled button (used for "Add card" empty-section CTA - was dark-on-dark unreadable)
+      md-filled-button-container-color: var(--primary-color)
+      md-filled-button-label-text-color: var(--text-primary-color)
+      # M3 tonal button (used for "Done" edit-mode button - was light-blue + cyan HA defaults)
+      md-filled-tonal-button-container-color: var(--ha-card-background)
+      md-filled-tonal-button-label-text-color: var(--primary-text-color)
+      # M3 text + outlined buttons
+      md-text-button-label-text-color: var(--primary-color)
+      md-outlined-button-label-text-color: var(--primary-color)
+      md-outlined-button-outline-color: var(--divider-color)
+      app-header-background-color: rgba(40,22,64,0.30)
+      app-header-edit-background-color: rgba(40,22,64,0.30)
+      app-header-border-bottom: none
+      app-header-text-color: var(--text-primary)
+      # Hemma frosted-glass pattern: backdrop-filter on cards, header, dialogs (modern HA respects these).
+      ha-card-backdrop-filter: var(--blur-glass)
+      app-header-backdrop-filter: blur(14px) saturate(1.4)
+      ha-dialog-surface-backdrop-filter: blur(20px) saturate(1.4)
+      sidebar-background-color: var(--surface-color)
+      sidebar-icon-color: var(--text-primary)
+      sidebar-text-color: var(--text-secondary)
+      sidebar-selected-icon-color: var(--active-color)
+      sidebar-selected-text-color: var(--text-primary)
+      lovelace-background: center / cover no-repeat fixed url('/local/wallpapers/everyday-dark.jpg')
+      error-color: var(--state-error)
+      warning-color: var(--state-warning)
+      success-color: var(--state-success)
+      info-color: var(--state-info)
+      paper-font-body1_-_font-family: '"Schibsted Grotesk", system-ui, sans-serif'
+      paper-font-headline_-_font-family: '"Bricolage Grotesque", "Schibsted Grotesk", sans-serif'
+      paper-font-code1_-_font-family: '"MonoDev", "MonoLisa", "Cascadia Code", "JetBrains Mono", ui-monospace, monospace'
+      mush-rgb-state-light: 255,126,58
+      mush-card-primary-font-family: '"Bricolage Grotesque", sans-serif'
+      mush-card-primary-font-weight: 600
+      mush-card-secondary-font-family: '"Schibsted Grotesk", sans-serif'
+      hemma-card-bg: var(--surface-color)
+      hemma-card-bg-active: var(--surface-elevated)
+      hemma-card-blur: var(--blur-glass)
+      hemma-control-on: var(--active-color)
+      hemma-control-off: var(--inactive-color)
+      speaker-row-bg: rgba(0,0,0,0.5)
+      speaker-row-shadow: var(--shadow-strong)
+      speaker-row-radius: 30px
+      speaker-track-color: white
+      speaker-thumb-color: white
+    light:
+      # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
+      # frosted-glass injection (see dark mode for full rationale).
+      everyday-frosted-portals: 'true'
+      surface-page: '#fcfcfc'
+      # iOS Notch app-theme-color reverted 2026-05-10 (was #001848, Stefan-pic IMG_7566 too dark).
+      # ha-dropdown surface (Web Awesome variable). Stefan-Decision 2026-05-10: alpha 1.0 fully opaque + !important
+      # to override ha-dropdown's :host var-chain fallback (which would otherwise use --card-background-color = rgba 0.4 alpha).
+      wa-color-surface-raised: 'rgb(255,255,255) !important'
+      # Lower alpha (was 0.65) for Hemma frosted-glass effect via ha-card-backdrop-filter.
+      surface-color: rgba(255,255,255,0.40)
+      surface-elevated: rgba(247,250,254,0.65)
+      surface-deepest: '#ffffff'
+      brand-color: '#001848'
+      active-color: '#58bcb4'
+      secondary-accent: '#ff5e3d'
+      inactive-color: rgba(0,24,72,0.30)
+      text-primary: '#001034'
+      text-secondary: rgba(0,16,52,0.70)
+      text-disabled: rgba(0,16,52,0.40)
+      shadow-soft: 0 1px 3px rgba(0,16,52,0.10)
+      shadow-strong: 0 12px 40px rgba(0,16,52,0.15)
+      blur-glass: blur(20px) saturate(1.3)
+      state-warning: '#c87a00'
+      state-error: '#c03c2c'
+      state-success: '#2c8a3c'
+      state-info: '#167a8c'
+      primary-color: var(--brand-color)
+      accent-color: var(--active-color)
+      primary-background-color: var(--surface-page)
+      # Stefan-Decision 2026-05-10: --card-background-color semi-transparent rgba für Glass-Look (light mode).
+      # backdrop-filter blur applied via card-mod shadow piercing below.
+      card-background-color: rgba(255,255,255,0.70)
+      ha-card-background: var(--surface-color)
+      ha-card-background-active: var(--surface-elevated)
+      divider-color: rgba(0,16,52,0.12)
+      primary-text-color: var(--text-primary)
+      # text-primary-color = "text on primary-color background" (HA convention).
+      # primary-color is brand-color #001848 (dark navy) - text on it must be white.
+      # (BUG-002 fix 2026-05-11)
+      text-primary-color: '#ffffff'
+      secondary-text-color: var(--text-secondary)
+      disabled-text-color: var(--text-disabled)
+      state-active-color: var(--active-color)
+      state-icon-active-color: var(--active-color)
+      state-light-on-color: var(--active-color)
+      state-light-off-color: var(--inactive-color)
+      paper-item-icon-active-color: var(--active-color)
+      paper-item-icon-color: var(--text-secondary)
+      # BUG-002 fix 2026-05-11: M3 + MDC button vars (mirrors dark mode block).
+      # Without these, light mode "Add card" button shows dark text on dark brand-color = invisible.
+      mdc-theme-primary: var(--primary-color)
+      mdc-theme-on-primary: var(--text-primary-color)
+      mdc-theme-on-surface: var(--primary-text-color)
+      md-filled-button-container-color: var(--primary-color)
+      md-filled-button-label-text-color: var(--text-primary-color)
+      md-filled-tonal-button-container-color: var(--ha-card-background)
+      md-filled-tonal-button-label-text-color: var(--primary-text-color)
+      md-text-button-label-text-color: var(--primary-color)
+      md-outlined-button-label-text-color: var(--primary-color)
+      md-outlined-button-outline-color: var(--divider-color)
+      app-header-background-color: rgba(255,255,255,0.30)
+      app-header-edit-background-color: rgba(255,255,255,0.30)
+      app-header-border-bottom: none
+      app-header-text-color: var(--text-primary)
+      # Hemma frosted-glass pattern (mirrors dark mode setting).
+      ha-card-backdrop-filter: var(--blur-glass)
+      app-header-backdrop-filter: blur(14px) saturate(1.4)
+      ha-dialog-surface-backdrop-filter: blur(20px) saturate(1.4)
+      sidebar-background-color: var(--surface-color)
+      sidebar-icon-color: var(--text-primary)
+      sidebar-selected-icon-color: var(--active-color)
+      lovelace-background: center / cover no-repeat fixed url('/local/wallpapers/everyday-light.jpg')
+      error-color: var(--state-error)
+      warning-color: var(--state-warning)
+      success-color: var(--state-success)
+      info-color: var(--state-info)
+      paper-font-body1_-_font-family: '"Schibsted Grotesk", system-ui, sans-serif'
+      paper-font-headline_-_font-family: '"Bricolage Grotesque", "Schibsted Grotesk", sans-serif'
+      paper-font-code1_-_font-family: '"MonoDev", "MonoLisa", "Cascadia Code", "JetBrains Mono", ui-monospace, monospace'
+      mush-rgb-state-light: 88,188,180
+      mush-card-primary-font-family: '"Bricolage Grotesque", sans-serif'
+      mush-card-secondary-font-family: '"Schibsted Grotesk", sans-serif'
+      hemma-card-bg: var(--surface-color)
+      hemma-card-bg-active: var(--surface-elevated)
+      hemma-control-on: var(--active-color)
+      hemma-control-off: var(--inactive-color)
+      speaker-row-bg: rgba(0,16,52,0.85)
+      speaker-row-shadow: var(--shadow-strong)
+      speaker-row-radius: 30px
+      speaker-track-color: white
+      speaker-thumb-color: white
+  # Hemma-style frosted-glass auf Sidebar/Drawer (requires HACS card-mod, Stefan has it via /hacsfiles/lovelace-card-mod/card-mod.js).
+  # Top-level (NOT inside modes) damit beide Light + Dark inheriten.
+  card-mod-theme: everyday
+  # Hemma-Pattern (upstream): card-mod-sidebar-yaml + ha-dropdown::part(menu) für modern HA Web Components.
+  # card-mod-root-yaml = root-level CSS (descendant selectors + ::part).
+  # card-mod-sidebar-yaml = injects CSS INTO ha-sidebar's shadow root via :host (the modern way).
+  card-mod-root-yaml: |
+    .: |
+      /* Dropdown frosted-glass - Stefan-confirmed selector: wa-popup div#menu (inside ha-dropdown shadow).
+         ha-dropdown extends Web Awesome Dropdown - the actual visual surface is div#menu nested inside wa-popup.
+         --wa-color-surface-raised controls the dropdown's CSS variable chain (-> --card-background-color). */
+      ha-dropdown {
+        --wa-color-surface-raised: var(--ha-card-background) !important;
+      }
+      /* Root-level fallback: if wa-popup portals to body when shown, this catches it */
+      wa-popup div#menu,
+      wa-popup #menu {
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        background-color: var(--ha-card-background) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+      }
+      /* Legacy / older-HA fallback selectors */
+      ha-dropdown::part(menu),
+      wa-popup::part(popup),
+      mwc-menu,
+      mwc-menu-surface,
+      .mdc-menu,
+      .mdc-menu-surface {
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        background-color: var(--ha-card-background) !important;
+      }
+      /* Legacy fallback for older HA versions still using mdc-drawer */
+      .mdc-drawer {
+        background-color: var(--sidebar-background-color, rgba(40,22,64,0.35)) !important;
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        border-right: none !important;
+        box-shadow: none !important;
+      }
+    ha-dropdown:
+      $: |
+        /* Shadow-pierce ha-dropdown's shadow root - target wa-popup > div#menu (Stefan-Selector) */
+        wa-popup div#menu,
+        wa-popup #menu,
+        #menu {
+          backdrop-filter: blur(20px) saturate(1.4) !important;
+          -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+          background-color: var(--ha-card-background) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 14px !important;
+        }
+  # Modern HA sidebar: card-mod-sidebar-yaml injects directly into ha-sidebar shadow root.
+  # Stefan-Selector ha-drawer:nth-child(2) > ha-sidebar:nth-child(1) confirms modern Web Component path.
+  card-mod-sidebar-yaml: |
+    .: |
+      :host {
+        background-color: var(--sidebar-background-color, rgba(40,22,64,0.35)) !important;
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        border-right: none !important;
+        box-shadow: none !important;
+      }
+      .menu {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+      }
+Glass Superpro:
+  modes:
+    light:
+      primary-background-color: '#2A2139'
+      secondary-background-color: '#241b2f'
+      ha-card-background: rgba(52,41,79,0.45)
+      ha-card-background-active: rgba(249,42,173,0.25)
+      badge-background: rgba(0,0,0,0.35)
+      text-primary-color: rgba(255,255,255,0.95)
+      secondary-text-color: rgba(240,240,240,0.9)
+      disabled-text-color: rgba(245,245,245,0.65)
+      sidebar-background-color: var(--ha-card-background)
+      sidebar-icon-color: var(--text-primary-color)
+      sidebar-text-color: '#c9c9c9'
+      hemma-entity-background: rgba(50,50,50,0.15)
+      hemma-entity-background-active: rgba(255,255,255,0.25)
+      hemma-entity-name: rgba(255,255,255,0.85)
+      hemma-entity-name-active: rgba(255,255,255,1)
+      hemma-entity-state: rgba(255,255,255,0.75)
+      hemma-entity-state-active: rgba(255,255,255,0.9)
+      hemma-entity-state-active-color: rgba(249,42,173,1)
+      navbar-primary-color: var(--hemma-nav-icon-active)
+      hemma-nav-bg: rgba(0,0,0,0.3)
+      hemma-nav-border: transparent
+      hemma-nav-shadow: 0 14px 18px rgba(0,0,0,0.03)
+      hemma-nav-specular-start: rgba(255,255,255,0.45)
+      hemma-nav-specular-mid: rgba(255,255,255,0.28)
+      hemma-nav-specular-end: rgba(255,255,255,0.45)
+      hemma-nav-inactive-opacity: 0.7
+      hemma-nav-icon: rgba(255,255,255,0.85)
+      hemma-nav-icon-active: rgba(255,255,255,1)
+      hemma-nav-active-fill: rgba(255,255,255,0.3)
+      hemma-popup-bg: rgba(200,200,200,0.1)
+      hemma-popup-specular-start: rgba(255,255,255,0.26)
+      hemma-popup-specular-mid: rgba(255,255,255,0.24)
+      hemma-popup-specular-end: rgba(255,255,255,0.22)
+      hemma-popup-entity-background: rgba(0,0,0,0.4)
+      hemma-popup-entity-hover: rgba(0,0,0,0.5)
+      hemma-card-specular-start: rgba(255,255,255,0.24)
+      hemma-card-specular-mid: rgba(255,255,255,0.16)
+      hemma-card-specular-end: rgba(255,255,255,0.20)
+      hemma-control-off: rgba(0,0,0,0.1)
+      hemma-control-on: rgba(255,255,255,0.2)
+      thermostat-card-off: var(--hemma-control-off)
+      thermostat-card-on: var(--hemma-control-on)
+      hemma-puck-font-color: rgba(255,255,255,.95)
+      hemma-puck-font-color-active: rgba(0,0,0,.6)
+      hemma-puck-icon-color: var(--hemma-entity-state)
+      hemma-puck-icon-color-active: var(--hemma-entity-name-active)
+      hemma-toggle-thumb-active: rgba(80,80,80,0.45)
+      hemma-toggle-thumb-inactive: rgba(255,255,255,0.8)
+      hemma-toggle-border-active: none
+      hemma-toggle-border-inactive: rgba(255,255,255,0.45)
+      ha-card-box-shadow: var(--ha-card-box-shadow-light)
+      button-card-box-shadow: var(--ha-shadow-light)
+      button-card-box-shadow-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-active: var(--ha-shadow-light)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-light-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-light-mobile)
+      ha-color-border-neutral-normal: transparent
+      ha-color-fill-primary-normal-resting: var(--hemma-nav-bg)
+      ha-color-fill-primary-quiet-resting: rgba(100,100,100,0.25)
+      ha-color-fill-primary-quiet-hover: rgba(100,100,100,0.3)
+      ha-color-form-background: var(--ha-card-background)
+      ha-color-form-background-disabled: var(--ha-card-background)
+      ha-color-form-background-hover: var(--ha-card-background)
+      ha-color-text-secondary: var(--secondary-text-color)
+      wa-color-text-quiet: var(--secondary-text-color)
+      mdc-text-field-fill-color: rgba(50,50,50,0.4)
+      mdc-select-fill-color: rgba(50,50,50,0.4)
+      mdc-theme-surface: var(--ha-card-background)
+      md-list-container-color: var(--ha-card-background)
+      dialog-background-color: var(--ha-card-background)
+      ha-dialog-background: rgba(255,255,255,0.1)
+      ha-dialog-surface-background: rgba(255,255,255,0.1)
+      app-header-background-color: transparent
+      app-header-edit-background-color: transparent
+      app-header-border-bottom: none
+    dark:
+      primary-background-color: '#2A2139'
+      secondary-background-color: '#241b2f'
+      ha-card-background: rgba(52,41,79,0.65)
+      ha-card-background-active: rgba(249,42,173,0.30)
+      badge-background: rgba(36,27,47,0.5)
+      text-primary-color: rgba(255,255,255,0.98)
+      secondary-text-color: rgba(240,240,240,0.9)
+      disabled-text-color: rgba(208,208,208,0.5)
+      sidebar-background-color: var(--ha-card-background)
+      sidebar-icon-color: var(--text-primary-color)
+      sidebar-text-color: '#a8a8a8'
+      hemma-entity-background: rgba(0,0,0,.1)
+      hemma-entity-background-active: rgba(255,255,255,0.25)
+      hemma-entity-name: rgba(255,255,255,0.85)
+      hemma-entity-name-active: rgba(255,255,255,1)
+      hemma-entity-state: rgba(255,255,255,0.7)
+      hemma-entity-state-active: rgba(255,255,255,0.8)
+      hemma-entity-state-active-color: rgba(249,42,173,1)
+      navbar-primary-color: var(--hemma-nav-icon-active)
+      hemma-nav-bg: rgba(0,0,0,0.25)
+      hemma-nav-border: transparent
+      hemma-nav-shadow: 0 14px 24px rgba(0,0,0,0.08)
+      hemma-nav-specular-start: rgba(255,255,255,0.3)
+      hemma-nav-specular-mid: rgba(255,255,255,0.20)
+      hemma-nav-specular-end: rgba(255,255,255,0.3)
+      hemma-nav-inactive-opacity: 0.72
+      hemma-nav-icon: rgba(255,255,255,0.96)
+      hemma-nav-icon-active: rgba(255,255,255,0.96)
+      hemma-nav-active-fill: rgba(255,255,255,0.2)
+      hemma-popup-bg: rgba(0,0,0,0.2)
+      hemma-popup-specular-start: rgba(255,255,255,0.28)
+      hemma-popup-specular-mid: rgba(255,255,255,0.22)
+      hemma-popup-specular-end: rgba(255,255,255,0.20)
+      hemma-popup-entity-background: rgba(40, 40, 40, 0.4)
+      hemma-popup-entity-hover: rgba(65, 65, 65, 0.6)
+      hemma-card-specular-start: rgba(255,255,255,0.20)
+      hemma-card-specular-mid: rgba(255,255,255,0.13)
+      hemma-card-specular-end: rgba(255,255,255,0.18)
+      hemma-control-off: rgba(0,0,0,0.2)
+      hemma-control-on: rgba(255,255,255,0.2)
+      thermostat-card-off: var(--hemma-control-off)
+      thermostat-card-on: var(--hemma-control-on)
+      hemma-puck-font-color: rgba(0,0,0,.8)
+      hemma-puck-font-color-active: rgba(0,0,0,.7)
+      hemma-puck-icon-color: var(--hemma-entity-state)
+      hemma-puck-icon-color-active: var(--hemma-entity-name-active)
+      hemma-toggle-thumb-active: rgba(80,80,80,0.45)
+      hemma-toggle-thumb-inactive: rgba(255,255,255,0.8)
+      hemma-toggle-border-active: none
+      hemma-toggle-border-inactive: rgba(255,255,255,0.45)
+      ha-card-box-shadow: var(--ha-card-box-shadow-dark)
+      button-card-box-shadow: var(--ha-shadow-dark)
+      button-card-box-shadow-active: var(--ha-shadow-dark)
+      button-card-box-shadow-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-dark-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-dark-mobile)
+      ha-dialog-background: rgba(36,27,47,0.55)
+      ha-dialog-surface-background: rgba(36,27,47,0.55)
+      ha-color-border-neutral-normal: transparent
+      ha-color-fill-primary-normal-resting: var(--hemma-nav-bg)
+      ha-color-fill-primary-quiet-resting: rgba(100,100,100,0.25)
+      ha-color-fill-primary-quiet-hover: rgba(100,100,100,0.3)
+      ha-color-form-background: var(--ha-card-background)
+      ha-color-form-background-disabled: var(--ha-card-background)
+      ha-color-form-background-hover: var(--ha-card-background)
+      ha-color-text-secondary: var(--secondary-text-color)
+      wa-color-text-quiet: var(--secondary-text-color)
+      mdc-text-field-fill-color: var(--primary-background-color)
+      mdc-select-fill-color: var(--primary-background-color)
+      mdc-theme-surface: var(--ha-card-background)
+      md-list-container-color: var(--ha-card-background)
+      dialog-background-color: var(--ha-card-background)
+      app-header-background-color: transparent
+      app-header-edit-background-color: transparent
+      app-header-border-bottom: none
+      paper-item-icon-active-color: '#ff007c'
+  ha-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset -2.5px
+    -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px rgba(255,255,255,0.25)
+
+    '
+  ha-shadow-light-hover: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset
+    -2.5px -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px
+    rgba(255,255,255,0.25), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-light-mobile: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 3px 3px 1px -3px rgba(255,255,255,0.22), inset -3px
+    -3px 1px -3px rgba(255,255,255,0.22), inset 0 10px 18px -16px rgba(255,255,255,0.35), inset 0 -10px 18px -16px rgba(255,255,255,0.35)
+
+    '
+  ha-shadow-dark: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3), inset
+    0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '
+  ha-shadow-dark-hover: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3),
+    inset 0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-dark-mobile: 'inset 3px 3px 1px -3px rgba(140,140,140,0.30), inset -3px -3px 1px -3px rgba(140,140,140,0.30),
+    inset 0 10px 18px -16px rgba(255,255,255,0.30), inset 0 -10px 18px -16px rgba(255,255,255,0.30)
+
+    '
+  ha-card-box-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(255,255,255,0.1), inset
+    -2px -2px 0.5px -2px rgba(255,255,255,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.2)
+
+    '
+  ha-card-box-shadow-dark: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(120,120,120,0.1), inset
+    -3px -3px 1px -3.5px rgba(120,120,120,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '
+  primary-font-family: Hanken Grotesk
+  ha-font-family-body: var(--primary-font-family)
+  ha-card-header-font-family: var(--primary-font-family)
+  primary-color: '#FF80BF'
+  accent-color: '#f92aad'
+  divider-color: '#373600'
+  app-theme-color: rgb(0,0,0)
+  state-inactive-color: '#FFFFFFCA'
+  primary-text-color: '#39FFFE'
+  icon-primary-color: currentColor
+  scrollbar-thumb-color: '#414AF5'
+  lumo-body-text-color: var(--primary-text-color)
+  clear-background-color: var(--ha-card-background)
+  paper-item-icon-color: currentColor
+  rgb-card-background-color: rgb(10,10,10)
+  ha-color-on-primary-normal: var(--primary-color)
+  ha-color-on-neutral-normal: var(--primary-text-color)
+  ha-color-red-40: '#d6314a'
+  ha-color-primary-95: '#9c9c9c'
+  ha-color-neutral-90: transparent
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: var(--primary-text-color)
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  wa-color-neutral-fill-normal: '#ffffff14'
+  wa-color-surface-border: rgba(255,255,255,0.1)
+  wa-color-neutral-fill-quiet: var(--primary-color)
+  wa-color-neutral-border-loud: var(--hemma-nav-border)
+  wa-color-neutral-border-normal: var(--hemma-nav-border)
+  wa-color-neutral-border-quiet: var(--hemma-nav-border)
+  wa-color-neutral-on-loud: rgba(255,255,255,0.95)
+  wa-color-neutral-on-normal: rgba(255,255,255,0.95)
+  wa-color-fill-loud: var(--primary-text-color)
+  wa-color-neutral-fill-loud: var(--primary-text-color)
+  wa-color-on-normal: var(--primary-text-color)
+  wa-color-on-quiet: var(--primary-text-color)
+  wa-color-neutral-on-quiet: var(--primary-text-color)
+  wa-color-text-normal: var(--primary-text-color)
+  ha-border-radius-lg: 12px
+  ha-border-radius-sm: 30px
+  ha-card-features-border-radius: 30px
+  border-end-end-radius: 30px
+  wa-border-radius-m: 24px
+  wa-border-radius-s: 30px
+  wa-border-style: none
+  wa-shadow-m: var(--ha-card-box-shadow)
+  mdc-dialog-scrim-color: rgba(0,0,0,0.5)
+  mdc-button-outline-color: rgba(255,255,255,0.15)
+  mdc-theme-primary: '#f92aad'
+  mdc-shape-small: 30px
+  app-header-background-color: rgba(76,80,84,0.3)
+  app-header-backdrop-filter: blur(10px)
+  app-header-edit-background-color: rgba(0,0,0,0.2)
+  app-header-border-bottom: none
+  ha-dialog-surface-backdrop-filter: blur(15px) saturate(1.2)
+  ha-dialog-surface-background: var(--ha-dialog-background)
+  ha-dialog-scrim-backdrop-filter: none
+  ha-dialog-border-radius: 28px
+  dialog-box-shadow: var(--ha-card-box-shadow)
+  card-background-color: var(--secondary-background-color)
+  paper-listbox-background-color: var(--primary-background-color)
+  ha-card-header-color: var(--primary-text-color)
+  paper-card-background-color: var(--ha-card-background)
+  ha-card-backdrop-filter: blur(20px) saturate(1.2)
+  ha-card-border-color: transparent
+  ha-card-border-radius: 28px
+  ha-card-border-width: 0
+  stack-card-gap: 0px
+  horizontal-stack-card-gap: 10px
+  input-fill-color: rgba(255,255,255,0.06)
+  input-ink-color: rgba(255,255,255,0.8)
+  input-label-ink-color: rgba(255,255,255,0.6)
+  input-idle-line-color: rgba(255,255,255,0.12)
+  input-hover-line-color: rgba(100,180,255,0.5)
+  input-disabled-fill-color: rgba(255,255,255,0.03)
+  input-disabled-ink-color: rgba(255,255,255,0.37)
+  input-dropdown-icon-color: rgba(255,255,255,0.54)
+  codemirror-keyword: rgb(180,130,255)
+  codemirror-number: rgb(100,200,130)
+  codemirror-string: rgb(255,200,100)
+  codemirror-comment: rgba(255,255,255,0.3)
+  codemirror-atom: rgb(100,180,255)
+  codemirror-property: rgb(255,140,100)
+  code-editor-background-color: '#161616'
+  hemma-nav-height: 0px
+  hemma-nav-margin-desktop: 8vw
+  hemma-nav-margin-tablet: 4.3vw
+  hemma-nav-gap-desktop: 50px
+  hemma-nav-gap-tablet: 45px
+  hemma-nav-top-desktop: 60px
+  hemma-nav-top-tablet: 55px
+  hemma-nav-backdrop-filter: blur(15px) saturate(1.2)
+  hemma-popup-br: 25px
+  hemma-popup-blur: blur(20px) saturate(1.1)
+  hemma-popup-shadow: 0 3px 14px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.03)
+  page-gutter-desktop: 8vw
+  page-gutter-tablet: 4vw
+  page-gutter-mobile: 11px
+  header-top-desktop: clamp(300px, 36vh, 400px)
+  header-top-tablet: clamp(140px, 30vh, 320px)
+  header-top-tablet-portrait: clamp(260px, 28vh, 400px)
+  header-top-mobile: clamp(30px, 16vh, 70px)
+  header-top-mobile-nudge: -10px
+  hemma-header-cap-desktop: clamp(260px, 30vh, 380px)
+  hemma-header-cap-tablet: clamp(230px, 28vh, 340px)
+  hemma-header-cap-mobile: clamp(240px, 34vh, 360px)
+  hemma-header-cap-landscape: clamp(170px, 44vh, 240px)
+  hemma-header-temp-nudge: 3px
+  hemma-header-badge-nudge: -7px
+  hemma-header-media-badge-nudge-desktop: 3px
+  hemma-header-media-badge-nudge-mobile: 2px
+  hero-header-gap-desktop: 8px
+  hero-header-gap-tablet: 8px
+  hero-header-gap-mobile: 8px
+  hero-temp-font-size-desktop: 18px
+  hero-temp-font-size-tablet: 16px
+  hero-temp-font-size-mobile: 14px
+  hero-title-size-desktop: clamp(75px, 4.6vw + 8px, 105px)
+  hero-title-size-tablet: clamp(68px, 5.5vw + 8px, 90px)
+  hero-title-size-mobile: clamp(38px, 4vw + 2px, 64px)
+  hero-title-size-landscape: clamp(28px, 4.6vw + 4px, 40px)
+  hero-title-line-height-desktop: 1.18
+  hero-title-line-height-tablet: 1.18
+  hero-title-line-height-mobile: 1.1
+  hero-title-line-height-landscape: 1.1
+  hero-title-letter-spacing-desktop: -2px
+  hero-title-letter-spacing-tablet: -1.5px
+  hero-title-letter-spacing-mobile: -1.2px
+  hero-title-letter-spacing-landscape: -1px
+  hero-title-margin-left-desktop: -2px
+  hero-title-margin-left-tablet: 2px
+  hero-title-margin-left-mobile: 2px
+  hero-title-margin-left-landscape: 2px
+  hero-tint: rgba(55,55,55,0.50)
+  hero-tint-mobile: rgba(80,80,80,0.20)
+  hero-img-blur: 4px
+  hero-img-blur-mobile: 0px
+  hero-img-scale: 1.08
+  hero-img-scale-mobile: 1.0
+  hero-img-saturate: 1.02
+  hero-img-saturate-mobile: 1.0
+  hero-img-brightness: 0.985
+  hero-img-brightness-mobile: 0.85
+  hero-img-saturate-from: 1.0
+  hero-img-brightness-from: 0.97
+  weather-icon-size-mobile: 26px
+  weather-icon-size-tablet: 24px
+  weather-icon-size-desktop: 24px
+  hemma-weather-bottom-nudge: -5px
+  hemma-entity-height-desktop: 200px
+  hemma-entity-inner-pad-desktop: 20px
+  hemma-entity-name-font-desktop: 18px
+  hemma-entity-state-font-desktop: 15px
+  hemma-entity-icon-size-desktop: 34px
+  hemma-entity-rows-desktop: repeat(1, auto)
+  hemma-entity-col-width-desktop: 290px
+  hemma-entity-justify-desktop: start
+  hemma-entity-right-inset-desktop: 0px
+  hemma-entity-bottom-desktop: 20px
+  hemma-entity-shadow-pad-right-desktop: 0px
+  hemma-entity-overflow-y-desktop: hidden
+  hemma-entity-col-width-tablet: 220px
+  hemma-entity-height-tablet: 160px
+  hemma-entity-inner-pad-tablet: 18px
+  hemma-entity-name-font-tablet: 16px
+  hemma-entity-state-font-tablet: 15px
+  hemma-entity-icon-size-tablet: 28px
+  hemma-time-nudge-tablet: 36px
+  hemma-entity-overflow-y-tablet: hidden
+  hemma-entity-col-width-mobile: 180px
+  hemma-entity-height-mobile: 108px
+  hemma-entity-inner-pad-mobile: 14px
+  hemma-entity-name-font-mobile: 14px
+  hemma-entity-state-font-mobile: 14px
+  hemma-time-nudge-mobile: 8px
+  hemma-entity-icon-size-mobile: 26px
+  hemma-entity-mobile-top-gap: -21px
+  hemma-entity-bottom-gap: 0px
+  hemma-entity-col-width-landscape: 160px
+  hemma-entity-height-landscape: 120px
+  hemma-entity-inner-pad-landscape: 14px
+  hemma-entity-name-font-landscape: 13px
+  hemma-entity-state-font-landscape: 12px
+  hemma-entity-icon-size-landscape: 24px
+  hemma-tiles-top-landscape-nudge: 0px
+  hemma-hero-top-landscape-nudge: 16px
+  hemma-entity-picture-inactive-opacity: 0.9
+  hemma-entity-picture-active-opacity: 1
+  hemma-entity-picture-inactive-filter: brightness(0.88) saturate(0.9)
+  hemma-entity-picture-active-filter: none
+  hemma-entity-text-shadow: 0 0 4px rgba(0,0,0,0.1)
+  hemma-entity-header-buffer: 220px
+  badge-blur: 14px
+  badge-br: 9999px
+  badge-active-color: rgba(255,255,255,0.85)
+  badge-title-inactive: rgba(255,255,255,0.75)
+  badge-gap: 10px
+  badge-col-gap: 4px
+  badge-padding: 4px 15px 4px 9px
+  badge-min-height: 50px
+  badge-icon-size: 30px
+  badge-font-size: 15px
+  badge-btn-size: 22px
+  badge-gap-tablet: 10px
+  badge-col-gap-tablet: 4px
+  badge-padding-tablet: 3px 14px 3px 8px
+  badge-min-height-tablet: 50px
+  badge-icon-size-tablet: 30px
+  badge-font-size-tablet: 15px
+  badge-btn-size-tablet: 20px
+  badge-gap-mobile: 10px
+  badge-col-gap-mobile: 4px
+  badge-padding-mobile: 4px 12px 4px 5px
+  badge-min-height-mobile: 43px
+  badge-icon-size-mobile: 24px
+  badge-font-size-mobile: 13px
+  badge-btn-size-mobile: 18px
+  badge-gap-landscape: 10px
+  badge-col-gap-landscape: 4px
+  badge-padding-landscape: 4px 12px 4px 5px
+  badge-min-height-landscape: 38px
+  badge-icon-size-landscape: 24px
+  badge-font-size-landscape: 12px
+  badge-btn-size-landscape: 16px
+  badge-media-icon-size: 38px
+  badge-media-icon-size-tablet: 36px
+  badge-media-icon-size-mobile: 33px
+  badge-media-icon-size-landscape: 28px
+  badge-media-btn-size: 40px
+  badge-media-btn-size-tablet: 40px
+  badge-media-btn-size-mobile: 34px
+  badge-media-btn-size-landscape: 30px
+  badge-media-btn-icon-size: 28px
+  badge-media-btn-icon-size-tablet: 24px
+  badge-media-btn-icon-size-mobile: 20px
+  badge-media-btn-icon-size-landscape: 18px
+  badge-media-max-width-desktop: 640px
+  badge-media-max-width-tablet: 520px
+  badge-media-max-width-mobile: 100%
+  hemma-badge-light-color: '#ffcc00'
+  hemma-badge-climate-color: '#00d2e0'
+  hemma-badge-climate-very-cold-color: '#3cd3fe'
+  hemma-badge-temp-very-cold-color: '#0091ff'
+  hemma-badge-temp-cool-color: '#3cd3fe'
+  hemma-badge-temp-comfortable-color: '#67f5a0'
+  hemma-badge-temp-warm-color: '#ffd600'
+  hemma-badge-temp-hot-color: '#ff9230'
+  hemma-badge-temp-very-hot-color: '#ff4245'
+  hemma-badge-air-quality-good-color: '#44e371'
+  hemma-badge-air-quality-moderate-color: '#ffd600'
+  hemma-badge-humidity-dry-color: '#ffb254'
+  hemma-badge-humidity-high-color: '#3cd3fe'
+  hemma-badge-presence-home-color: '#72f1b8cc'
+  hemma-badge-presence-away-color: '#ffd600'
+  hemma-badge-media-color: '#f92aad'
+  state-icon-active-color: '#FDD835'
+  state-icon-color: rgba(255,255,255,0.4)
+  state-on-color: '#66a61e'
+  state-off-color: '#ff0029'
+  state-light-on-color: '#ffcc00'
+  state-light-off-color: rgba(255,255,255,0.3)
+  state-climate-heat-color: '#ff8100'
+  state-climate-cool-color: '#2b9af9'
+  state-climate-auto-color: '#008000'
+  state-climate-idle-color: rgba(255,255,255,0.3)
+  state-alarm-armed-color: rgb(100,200,130)
+  state-alarm-disarmed-color: rgba(255,255,255,0.3)
+  state-alarm-pending-color: rgb(255,180,60)
+  state-alarm-triggered-color: rgb(255,80,80)
+  state-lock-locked-color: rgb(100,200,130)
+  state-lock-unlocked-color: rgb(255,100,100)
+  state-binary_sensor-active-color: rgb(255,180,60)
+  state-binary_sensor-inactive-color: rgba(255,255,255,0.3)
+  state-sensor-battery-high-color: rgb(100,200,130)
+  state-sensor-battery-low-color: rgb(255,80,80)
+  state-media_player-active-color: '#f92aad'
+  state-media_player-inactive-color: rgba(255,255,255,0.3)
+  state-vacuum-active-color: '#f92aad'
+  state-vacuum-inactive-color: rgba(255,255,255,0.3)
+  paper-slider-knob-color: '#f92aad'
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: '#f92aad'
+  paper-slider-secondary-color: var(--paper-slider-knob-color)
+  paper-slider-container-color: rgba(255,255,255,0.12)
+  paper-slider-font-color: '#000000'
+  ha-slider-background: none
+  mush-control-border-radius: 9999px
+  label-badge-background-color: '#23232e'
+  label-badge-text-color: '#f1f1f1'
+  label-badge-red: rgb(255,80,80)
+  label-badge-green: rgb(100,200,130)
+  label-badge-blue: rgb(100,180,255)
+  label-badge-yellow: rgb(255,200,60)
+  chip-background-color: rgba(255,255,255,0.08)
+  chip-text-color: rgba(255,255,255,0.75)
+  switch-checked-color: '#f92aad'
+  switch-checked-button-color: white
+  switch-checked-track-color: rgba(249,42,173,0.45)
+  switch-unchecked-color: rgba(255,255,255,0.25)
+  switch-unchecked-button-color: rgba(255,255,255,0.6)
+  switch-unchecked-track-color: rgba(255,255,255,0.12)
+  table-row-background-color: rgba(255,255,255,0.03)
+  table-row-alternative-background-color: rgba(255,255,255,0.06)
+  data-table-background-color: transparent
+  markdown-code-background-color: rgba(255,255,255,0.08)
+  trace-line-color: '#f92aad'
+  history-filling-color: rgba(249,42,173,0.15)
+  energy-grid-consumption-color: '#488fc2'
+  energy-grid-return-color: '#8353d1'
+  energy-solar-color: '#ff9800'
+  energy-battery-in-color: '#f06292'
+  energy-battery-out-color: '#4db6ac'
+  energy-gas-color: '#8E021B'
+  card-mod-theme: Glass Superpro
+  card-mod-root-yaml: ".: |\n  /* Stefan-Fix 2026-04-25: Superpro-Vibe braucht das Original-Bg-Image\n     (Synthwave-Lila-Wallpaper\
+    \ aus Stefans Haupt-HA, scp'd nach\n     yama-ha:/config/www/images/superpro-bg.jpg = /local/images/...) und\n     als\
+    \ Fallback eine deep-purple Surface damit Tints sichtbar sind. */\n  html, body {\n    background:\n      url('/local/images/superpro-bg.jpg')\
+    \ center / cover fixed no-repeat,\n      #1a1428 !important;\n    background-color: #1a1428 !important;\n  }\n\n  ha-drawer\
+    \ ha-sidebar,\n  home-assistant-main,\n  ha-panel-lovelace,\n  hui-root,\n  ha-app-layout {\n    background: transparent\
+    \ !important;\n  }\n\n  @media (max-width: 767px) and (orientation: portrait) {\n    html, body {\n      overflow-x: hidden\
+    \ !important;\n      overscroll-behavior-x: none !important;\n    }\n\n    home-assistant,\n    home-assistant-main,\n\
+    \    ha-panel-lovelace,\n    hui-root {\n      overflow-x: hidden !important;\n      overscroll-behavior: none !important;\n\
+    \    }\n\n    ha-panel-lovelace,\n    hui-root,\n    ha-app-layout,\n    #view,\n    hui-view,\n    hui-view-container\
+    \ {\n      touch-action: pan-y !important;\n    }\n  }\n\n  html, body {\n    overflow-x: hidden !important;\n    overscroll-behavior-x:\
+    \ none !important;\n    max-width: 100vw !important;\n  }\n\n  home-assistant,\n  home-assistant-main,\n  ha-panel-lovelace,\n\
+    \  hui-root,\n  ha-app-layout,\n  #view,\n  hui-view,\n  hui-view-container {\n    overflow-x: hidden !important;\n  \
+    \  max-width: 100vw !important;\n  }\n\n  :host, ha-app-layout {\n    --hemma-header-offset: var(--app-header-height,\
+    \ var(--header-height, 0px));\n    color-scheme: dark;\n  }\n\n\n  body.kiosk-mode,\n  ha-panel-lovelace.kiosk-mode,\n\
+    \  ha-panel-lovelace[is-kiosk],\n  ha-app-layout.kiosk-mode,\n  ha-app-layout[is-kiosk]{\n    --hemma-header-offset: 0px\
+    \ !important;\n  }\n\n  :not(.edit-mode) > hui-view::after,\n  :not(.edit-mode) > hui-view:after {\n    display: none\
+    \ !important;\n  }\n\n  ha-card.navbar-card.desktop.bottom.docked.type-custom-navbar-card{\n    display: none !important;\n\
+    \    height: 0 !important;\n    min-height: 0 !important;\n    padding: 0 !important;\n    margin: 0 !important;\n   \
+    \ border: 0 !important;\n    box-shadow: none !important;\n    overflow: hidden !important;\n  }\n\n  ha-more-info-dialog,\n\
+    \  ha-dialog {\n    --vertical-align-dialog: flex-end;\n    --dialog-surface-margin-top: 15vh;\n  }\n\n  ha-more-info-dialog\
+    \ .mdc-dialog,\n  ha-dialog .mdc-dialog {\n    align-items: center !important;\n    justify-content: center !important;\n\
+    \  }\n\n  ha-more-info-dialog .mdc-dialog__container,\n  ha-dialog .mdc-dialog__container {\n    align-items: center !important;\n\
+    \    justify-content: center !important;\n    margin-top: 10vh !important;\n  }\n\n  ha-more-info-dialog .mdc-dialog__surface,\n\
+    \  ha-dialog .mdc-dialog__surface {\n    margin-top: auto !important;\n    margin-bottom: auto !important;\n  }\n\n  @media\
+    \ (max-width: 767px) {\n    ha-more-info-dialog .mdc-dialog__container,\n    ha-dialog .mdc-dialog__container {\n    \
+    \  align-items: flex-end !important;\n      justify-content: flex-end !important;\n      margin-top: 0 !important;\n \
+    \   }\n\n    ha-more-info-dialog .mdc-dialog__surface,\n    ha-dialog .mdc-dialog__surface {\n      margin-top: auto !important;\n\
+    \      margin-bottom: 0 !important;\n    }\n  }\n\n  layout-card{\n    --layout-margin: 0px !important;\n    --layout-padding:\
+    \ 0px !important;\n    --layout-height: auto !important;\n    --layout-overflow: visible !important;\n    --ha-card-backdrop-filter:\
+    \ none;\n    --ha-card-background: transparent;\n    --ha-card-box-shadow: none;\n    --ha-card-border-color: transparent;\n\
+    \    --ha-card-border-width: 0px;\n  }\n\n  navbar-card{\n    --ha-card-backdrop-filter: none;\n    --ha-card-background:\
+    \ transparent;\n    --ha-card-box-shadow: none;\n    --ha-card-border-color: transparent;\n    --ha-card-border-width:\
+    \ 0px;\n  }\n\n  grid-layout {\n    --masonry-view-card-margin: 0px;\n  }\n\n  layout-card$ #container{\n    height: auto\
+    \ !important;\n    min-height: 0 !important;\n    align-items: flex-start !important;\n    justify-content: flex-start\
+    \ !important;\n  }\n\n  layout-card$ #container > *{\n    min-height: 0 !important;\n  }\n\n  ha-dropdown {\n    --wa-color-surface-raised:\
+    \ var(--ha-card-background) !important;\n  }\n\n  ha-dropdown::part(menu) {\n    backdrop-filter: blur(20px) saturate(1.02)\
+    \ !important;\n    -webkit-backdrop-filter: blur(20px) saturate(1.02) !important;\n  }\n\n  .mdc-data-table {\n    border-radius:\
+    \ 0px !important;\n  }\n\n  /* Desktop */\n  html,\n  :host,\n  ha-app-layout {\n    --page-gutter: var(--page-gutter-desktop);\n\
+    \    --hemma-rail-left: var(--page-gutter-desktop);\n    --content-rail: var(--hemma-rail-left);\n    --hero-top: var(--header-top-desktop);\n\
+    \    --hero-gutter: var(--page-gutter-desktop);\n    --hero-header-gap-current: var(--hero-header-gap-desktop, 6px);\n\
+    \    --hero-temp-font-size: var(--hero-temp-font-size-desktop, 18px);\n    --hemma-header-stack-h-current: var(--hemma-header-cap-desktop,\
+    \ clamp(260px, 30vh, 380px));\n    --hemma-header-media-badge-nudge-current: var(--hemma-header-media-badge-nudge-desktop,\
+    \ 3px);\n    --hemma-nav-margin-current: var(--hemma-nav-margin-desktop, 8vw);\n    --hemma-nav-gap-current: var(--hemma-nav-gap-desktop,\
+    \ 50px);\n    --hemma-nav-top-current: var(--hemma-nav-top-desktop, 60px);\n    --hero-room-name-size-current: var(--hero-title-size-desktop,\
+    \ clamp(75px, 4.6vw + 8px, 105px));\n    --hero-room-name-line-height-current: var(--hero-title-line-height-desktop, 1.18);\n\
+    \    --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-desktop, -2px);\n    --hero-room-name-margin-left-current:\
+    \ var(--hero-title-margin-left-desktop, -2px);\n    --badge-media-max-width-current: var(--badge-media-max-width-desktop,\
+    \ 640px);\n    --badge-gap-current: var(--badge-gap, 10px);\n    --badge-col-gap-current: var(--badge-col-gap, 4px);\n\
+    \    --badge-padding-current: var(--badge-padding, 4px 15px 4px 9px);\n    --badge-min-height-current: var(--badge-min-height,\
+    \ 50px);\n    --badge-icon-size-current: var(--badge-icon-size, 30px);\n    --badge-font-size-current: var(--badge-font-size,\
+    \ 15px);\n    --badge-btn-size-current: var(--badge-btn-size, 22px);\n    --badge-media-icon-size-current: var(--badge-media-icon-size,\
+    \ 38px);\n    --badge-media-btn-size-current: var(--badge-media-btn-size, 40px);\n    --badge-media-btn-icon-size-current:\
+    \ var(--badge-media-btn-icon-size, 28px);\n    --hemma-entity-col-width-current: var(--hemma-entity-col-width-desktop,\
+    \ 280px);\n    --hemma-entity-height-current: var(--hemma-entity-height-desktop, 180px);\n    --hemma-entity-rows-current:\
+    \ var(--hemma-entity-rows-desktop, repeat(1, auto));\n    --hemma-entity-justify-current: var(--hemma-entity-justify-desktop,\
+    \ flex-start);\n    --hemma-entity-right-inset-current: var(--hemma-entity-right-inset-desktop, 0px);\n    --hemma-entity-left-inset-current:\
+    \ var(--hemma-rail-left, var(--page-gutter, 8vw));\n    --hemma-entity-bottom-current: var(--hemma-entity-bottom-desktop,\
+    \ 20px);\n    --hemma-entity-shadow-pad-right-current: var(--hemma-entity-shadow-pad-right-desktop, 0px);\n    --hemma-entity-overflow-y-current:\
+    \ var(--hemma-entity-overflow-y-desktop, hidden);\n    --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-desktop,\
+    \ 20px);\n    --hemma-entity-name-font-current: var(--hemma-entity-name-font-desktop, 18px);\n    --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-desktop, 15px);\n    --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-desktop,\
+    \ 34px);\n    --hemma-button-card-box-shadow-current: var(--button-card-box-shadow);\n    --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active);\n    --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover);\n\
+    \  }\n\n  /* Tablet */\n  @media (min-width: 768px) and (max-width: 1366px) and (min-height: 501px) and (hover: none)\
+    \ and (pointer: coarse) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter: var(--page-gutter-tablet);\n\
+    \      --hemma-rail-left: var(--page-gutter-tablet);\n      --content-rail: var(--hemma-rail-left);\n      --hero-top:\
+    \ var(--header-top-tablet);\n      --hero-gutter: var(--page-gutter-tablet);\n      --hero-header-gap-current: var(--hero-header-gap-tablet,\
+    \ 6px);\n      --hero-temp-font-size: var(--hero-temp-font-size-tablet, 16px);\n      --hemma-header-stack-h-current:\
+    \ var(--hemma-header-cap-tablet, clamp(230px, 28vh, 340px));\n      --hemma-nav-margin-current: var(--hemma-nav-margin-tablet,\
+    \ 4.3vw);\n      --hemma-nav-gap-current: var(--hemma-nav-gap-tablet, 45px);\n      --hemma-nav-top-current: var(--hemma-nav-top-tablet,\
+    \ 55px);\n      --hero-room-name-size-current: var(--hero-title-size-tablet, clamp(36px, 4.2vw + 6px, 64px));\n      --hero-room-name-line-height-current:\
+    \ var(--hero-title-line-height-tablet, 1.18);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-tablet,\
+    \ -1.5px);\n      --hero-room-name-margin-left-current: var(--hero-title-margin-left-tablet, -1px);\n      --badge-media-max-width-current:\
+    \ var(--badge-media-max-width-tablet, 520px);\n      --badge-gap-current: var(--badge-gap-tablet, var(--badge-gap, 10px));\n\
+    \      --badge-col-gap-current: var(--badge-col-gap-tablet, var(--badge-col-gap, 4px));\n      --badge-padding-current:\
+    \ var(--badge-padding-tablet, var(--badge-padding, 4px 15px 4px 9px));\n      --badge-min-height-current: var(--badge-min-height-tablet,\
+    \ var(--badge-min-height, 50px));\n      --badge-icon-size-current: var(--badge-icon-size-tablet, var(--badge-icon-size,\
+    \ 30px));\n      --badge-font-size-current: var(--badge-font-size-tablet, var(--badge-font-size, 15px));\n      --badge-btn-size-current:\
+    \ var(--badge-btn-size-tablet, var(--badge-btn-size, 22px));\n      --badge-media-icon-size-current: var(--badge-media-icon-size-tablet,\
+    \ var(--badge-media-icon-size, 38px));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-tablet, var(--badge-media-btn-size,\
+    \ 40px));\n      --badge-media-btn-icon-size-current: var(--badge-media-btn-icon-size-tablet, var(--badge-media-btn-icon-size,\
+    \ 24px));\n      --hemma-entity-col-width-current: var(--hemma-entity-col-width-tablet, 210px);\n      --hemma-entity-height-current:\
+    \ var(--hemma-entity-height-tablet, 150px);\n      --hemma-entity-overflow-y-current: var(--hemma-entity-overflow-y-tablet,\
+    \ var(--hemma-entity-overflow-y-desktop, hidden));\n      --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-tablet,\
+    \ 18px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-tablet, 15px);\n      --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-tablet, 13px);\n      --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-tablet,\
+    \ 28px);\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow);\n      --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active);\n      --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover);\n\
+    \    }\n  }\n\n  /* Tablet Portrait */\n  @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait)\
+    \ and (min-height: 501px) and (hover: none) and (pointer: coarse) {\n    html,\n    :host,\n    ha-app-layout {\n    \
+    \  --hero-top: var(--header-top-tablet-portrait);\n    }\n  }\n\n  /* Mobile Portrait */\n  @media (max-width: 767px)\
+    \ and (orientation: portrait) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter: var(--page-gutter-mobile);\n\
+    \      --hemma-rail-left: var(--page-gutter-mobile);\n      --content-rail: var(--hemma-rail-left);\n      --hero-top:\
+    \ calc(var(--header-top-mobile) - var(--header-top-mobile-nudge, 0px));\n      --hero-gutter: var(--page-gutter-mobile);\n\
+    \      --hero-header-gap-current: var(--hero-header-gap-mobile, 5px);\n      --hero-temp-font-size: var(--hero-temp-font-size-mobile,\
+    \ 14px);\n      --hemma-header-stack-h-current: var(--hemma-header-cap-mobile, clamp(240px, 34vh, 360px));\n      --hero-room-name-size-current:\
+    \ var(--hero-title-size-mobile, clamp(38px, 4vw + 2px, 64px));\n      --hero-room-name-line-height-current: var(--hero-title-line-height-mobile,\
+    \ 1.20);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-mobile, -1.2px);\n      --hero-room-name-margin-left-current:\
+    \ var(--hero-title-margin-left-mobile, 2px);\n      --hemma-header-media-badge-nudge-current: var(--hemma-header-media-badge-nudge-mobile,\
+    \ 0px);\n      --badge-media-max-width-current: var(--badge-media-max-width-mobile, 100%);\n      --badge-gap-current:\
+    \ var(--badge-gap-mobile, var(--badge-gap, 10px));\n      --badge-col-gap-current: var(--badge-col-gap-mobile, var(--badge-col-gap,\
+    \ 4px));\n      --badge-padding-current: var(--badge-padding-mobile, var(--badge-padding, 4px 10px 4px 7px));\n      --badge-min-height-current:\
+    \ var(--badge-min-height-mobile, var(--badge-min-height, 50px));\n      --badge-icon-size-current: var(--badge-icon-size-mobile,\
+    \ var(--badge-icon-size, 30px));\n      --badge-font-size-current: var(--badge-font-size-mobile, var(--badge-font-size,\
+    \ 15px));\n      --badge-btn-size-current: var(--badge-btn-size-mobile, var(--badge-btn-size, 22px));\n      --badge-media-icon-size-current:\
+    \ var(--badge-media-icon-size-mobile, var(--badge-media-icon-size, 32px));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-mobile,\
+    \ var(--badge-media-btn-size, 34px));\n      --badge-media-btn-icon-size-current: var(--badge-media-btn-icon-size-mobile,\
+    \ var(--badge-media-btn-icon-size, 20px));\n      --hemma-entity-col-width-current: var(--hemma-entity-col-width-mobile,\
+    \ 180px);\n      --hemma-entity-height-current: var(--hemma-entity-height-mobile, 115px);\n      --hemma-entity-inner-pad-current:\
+    \ var(--hemma-entity-inner-pad-mobile, 14px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-mobile,\
+    \ 14px);\n      --hemma-entity-state-font-current: var(--hemma-entity-state-font-mobile, 14px);\n      --hemma-entity-icon-size-current:\
+    \ var(--hemma-entity-icon-size-mobile, 26px);\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow-mobile);\n\
+    \      --hemma-button-card-box-shadow-active-current: var(--button-card-box-shadow-active-mobile);\n      --hemma-button-card-box-shadow-hover-current:\
+    \ var(--button-card-box-shadow-hover-mobile);\n    }\n\n    app-header ha-menu-button,\n    app-toolbar ha-menu-button{\n\
+    \      display: none !important;\n    }\n  }\n\n  /* Mobile Landscape */\n  @media (hover: none) and (pointer: coarse)\
+    \ and (orientation: landscape) and (max-height: 600px) {\n    html,\n    :host,\n    ha-app-layout {\n      --page-gutter:\
+    \ var(--page-gutter-mobile);\n      --hemma-rail-left: var(--page-gutter-mobile);\n      --content-rail: var(--hemma-rail-left);\n\
+    \      --hero-gutter: 18px;\n      --hero-top: calc(env(safe-area-inset-top, 0px) + 96px + var(--hemma-hero-top-landscape-nudge,\
+    \ 0px));\n      --hemma-tiles-top-landscape: calc(var(--hero-top) + var(--hemma-tiles-top-landscape-nudge, 0px));\n  \
+    \    --hemma-entity-col-width-current: var(--hemma-entity-col-width-landscape, 200px);\n      --hemma-entity-height-current:\
+    \ var(--hemma-entity-height-landscape, 110px);\n      --hemma-entity-inner-pad-current: var(--hemma-entity-inner-pad-landscape,\
+    \ 14px);\n      --hemma-entity-name-font-current: var(--hemma-entity-name-font-landscape, 13px);\n      --hemma-entity-state-font-current:\
+    \ var(--hemma-entity-state-font-landscape, 12px);\n      --hemma-entity-icon-size-current: var(--hemma-entity-icon-size-landscape,\
+    \ 24px);\n      --hemma-landscape-left-rail: clamp(240px, 34vw, 320px);\n      --hemma-landscape-badge-stop-pad: 12px;\n\
+    \      --badge-media-max-width-current: calc(var(--hemma-landscape-left-rail) - var(--hemma-landscape-badge-stop-pad));\n\
+    \      --hemma-header-stack-h-current: var(--hemma-header-cap-landscape, clamp(170px, 44vh, 240px));\n      --hero-room-name-size-current:\
+    \ var(--hero-title-size-landscape, clamp(28px, 4.6vw + 4px, 40px));\n      --hero-room-name-line-height-current: var(--hero-title-line-height-landscape,\
+    \ 1.12);\n      --hero-room-name-letter-spacing-current: var(--hero-title-letter-spacing-landscape, -1px);\n      --hero-room-name-margin-left-current:\
+    \ var(--hero-title-margin-left-landscape, var(--hero-room-name-margin-left-current, 0px));\n      --badge-gap-current:\
+    \ var(--badge-gap-landscape, var(--badge-gap-mobile, var(--badge-gap, 10px)));\n      --badge-col-gap-current: var(--badge-col-gap-landscape,\
+    \ var(--badge-col-gap-mobile, var(--badge-col-gap, 4px)));\n      --badge-padding-current: var(--badge-padding-landscape,\
+    \ var(--badge-padding-mobile, var(--badge-padding, 1px 14px 1px 6px)));\n      --badge-min-height-current: var(--badge-min-height-landscape,\
+    \ var(--badge-min-height-mobile, var(--badge-min-height, 43px)));\n      --badge-icon-size-current: var(--badge-icon-size-landscape,\
+    \ var(--badge-icon-size-mobile, var(--badge-icon-size, 30px)));\n      --badge-font-size-current: var(--badge-font-size-landscape,\
+    \ var(--badge-font-size-mobile, var(--badge-font-size, 13px)));\n      --badge-btn-size-current: var(--badge-btn-size-landscape,\
+    \ var(--badge-btn-size-mobile, var(--badge-btn-size, 18px)));\n      --badge-media-icon-size-current: var(--badge-media-icon-size-landscape,\
+    \ var(--badge-media-icon-size-mobile, var(--badge-media-icon-size, 28px)));\n      --badge-media-btn-size-current: var(--badge-media-btn-size-landscape,\
+    \ var(--badge-media-btn-size-mobile, var(--badge-media-btn-size, 30px)));\n      --badge-media-btn-icon-size-current:\
+    \ var(--badge-media-btn-icon-size-landscape, var(--badge-media-btn-icon-size-mobile, var(--badge-media-btn-icon-size,\
+    \ 18px)));\n      --hemma-button-card-box-shadow-current: var(--button-card-box-shadow-mobile);\n      --hemma-button-card-box-shadow-active-current:\
+    \ var(--button-card-box-shadow-active-mobile);\n      --hemma-button-card-box-shadow-hover-current: var(--button-card-box-shadow-hover-mobile);\n\
+    \    }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    .m__run, .eq .b { animation: none !important; }\n  }\n\
+    \n  .hemma-entities,\n  .hemma-entities > div {\n    scrollbar-width: none;\n    -ms-overflow-style: none;\n  }\n  .hemma-entities::-webkit-scrollbar,\n\
+    \  .hemma-entities > div::-webkit-scrollbar {\n    width: 0 !important;\n    height: 0 !important;\n    background: transparent\
+    \ !important;\n  }\n\n  app-header,\n  app-toolbar {\n    background: transparent;\n    backdrop-filter: blur(10px);\n\
+    \    -webkit-backdrop-filter: blur(10px);\n  }\n\n  ha-card {\n    transition: filter .2s ease, opacity .2s ease;\n  }\n\
+    \n  @media (min-width: 768px) and (max-width: 1249px) and (orientation: portrait) and (hover: none){\n    :host, ha-app-layout{\n\
+    \      --hemma-entity-bottom-current: 0px;\n      --hemma-time-opacity: 0.4;\n    }\n  }\n  @media (min-width: 768px)\
+    \ and (max-width: 1249px) and (orientation: landscape) and (hover: none){\n    :host, ha-app-layout{\n      --hemma-entity-bottom-current:\
+    \ 12px;\n      --hemma-time-opacity: 0.4;\n    }\n  }\n\n\nha-more-info-dialog: |\n  ha-adaptive-dialog {\n    --wa-color-fill-loud:\
+    \ var(--primary-text-color, white);\n    --wa-color-neutral-fill-loud: var(--primary-text-color, white);\n    --wa-color-on-normal:\
+    \ var(--primary-text-color, white);\n    --wa-color-on-quiet: var(--primary-text-color, white);\n    --wa-color-neutral-on-quiet:\
+    \ var(--primary-text-color, white);\n    --wa-color-text-normal: var(--primary-text-color, white);\n    color: var(--primary-text-color,\
+    \ white);\n  }\n\n  .content-wrapper {\n    color: var(--primary-text-color, white);\n  }\n\nha-adaptive-dialog: |\n \
+    \ wa-drawer,\n  wa-popup,\n  wa-dialog {\n    --wa-color-fill-loud: var(--primary-text-color, white);\n    --wa-color-neutral-fill-loud:\
+    \ var(--primary-text-color, white);\n    --wa-color-on-normal: var(--primary-text-color, white);\n    --wa-color-on-quiet:\
+    \ var(--primary-text-color, white);\n    --wa-color-neutral-on-quiet: var(--primary-text-color, white);\n    --wa-color-text-normal:\
+    \ var(--primary-text-color, white);\n    color: var(--primary-text-color, white);\n  }\n"
+  card-mod-sidebar-yaml: ".: |\n  :host {\n    background: none !important;\n    box-shadow: none !important;\n    border:\
+    \ 0 !important;\n    outline: none !important;\n  }\n\n  .menu {\n    border-bottom: 0 !important;\n    box-shadow: none\
+    \ !important;\n  }\n\n  ha-md-list-item,\n  ha-md-list-item.selected::before {\n    border-radius: var(--ha-card-border-radius)\
+    \ !important;\n  }\n\n  @media (hover: none) {\n    ha-md-list-item {\n      --md-list-item-hover-state-layer-opacity:\
+    \ 0 !important;\n      --ha-ripple-hover-opacity: 0 !important;\n    }\n  }\n"
+  card-mod-drawer: ".mdc-drawer {\n  background-color: var(--sidebar-background-color) !important;\n  backdrop-filter: blur(20px)\
+    \ saturate(1.2);\n  -webkit-backdrop-filter: blur(20px) saturate(1.2);\n  border-right: none !important;\n  box-shadow:\
+    \ none !important;\n}\n"
+  card-mod-view-yaml: "hui-view:\n  $: |\n    :host {\n      background: none !important;\n    }\n\nha-card:\n  $: |\n   \
+    \ :host {\n      --mdc-ripple-press-opacity: 0 !important;\n      --mdc-ripple-hover-opacity: 0 !important;\n      --mdc-ripple-focus-opacity:\
+    \ 0 !important;\n      --mdc-ripple-color: transparent !important;\n      -webkit-tap-highlight-color: transparent !important;\n\
+    \    }\n"
+  card-mod-card: "ha-card {\n  background: var(--ha-card-background, rgba(0,0,0,0.2));\n  border-radius: var(--ha-card-border-radius,\
+    \ 16px);\n  transition: filter .22s ease, transform .12s ease !important;\n  will-change: filter, transform;\n}\n\n@media\
+    \ (hover:hover) {\n  ha-card:not(.type-custom-navbar-card):hover {\n    box-shadow: var(--hemma-button-card-box-shadow-hover-current,\
+    \ var(--button-card-box-shadow-hover, var(--ha-shadow-light-hover))) !important;\n  }\n  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):hover,\n\
+    \  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):focus-within {\n    filter: var(--hemma-hover-filter,\
+    \ brightness(1.10)) !important;\n  }\n}\n\n@media (hover:none) {\n  :host(:not(.hemma-room)) ha-card:not(.type-custom-navbar-card):active\
+    \ {\n    filter: var(--hemma-hover-filter, brightness(1.12)) !important;\n    box-shadow: var(--hemma-button-card-box-shadow-hover-current,\
+    \ var(--button-card-box-shadow-hover-mobile)) !important;\n  }\n}\n\n:host(.hemma-entity) {\n  position: relative !important;\n\
+    \  z-index: 0 !important;\n  display: block !important;\n  border-radius: var(--ha-card-border-radius, 28px) !important;\n\
+    \  overflow: visible !important;\n  contain: none !important;\n}\n\n:host(.hemma-entity) ha-card {\n  position: relative\
+    \ !important;\n  z-index: 0 !important;\n  border-radius: inherit !important;\n  overflow: hidden !important;\n  background-clip:\
+    \ padding-box;\n}\n\n:host(.hemma-entity) ha-card:active {\n  transform: translateY(.5px);\n  backface-visibility: hidden;\n\
+    \  will-change: transform;\n}\n\n:host(.hemma-hero),\n:host(.hemma-hero) ha-card,\n:host(.hemma-hero) .button-card-main,\n\
+    :host(.hemma-hero) .button-card-content{\n  direction: ltr !important;\n  text-align: left !important;\n}\n\n/* Energy\
+    \ dashboard */\n.mdc-data-table,\n.mdc-data-table__row,\n.mdc-data-table__header-cell,\nha-sankey-chart {\n  background:\
+    \ none !important;\n}\n"
+  uix-theme: Glass Superpro
+  uix-drawer: ".mdc-drawer {\n  background-color: var(--sidebar-background-color) !important;\n  backdrop-filter: blur(20px)\
+    \ saturate(1.2);\n  -webkit-backdrop-filter: blur(20px) saturate(1.2);\n  border-right: none !important;\n  box-shadow:\
+    \ none !important;\n}\n:host {\n  {%- if panel.viewUrlPath == 'electricity' -%}\n  --uix-view-background-cover: full;\n\
+    \  --uix-view-background: linear-gradient(rgba(55,55,55,0.50),rgba(55,55,55,0.50)),center/cover no-repeat url('/local/hemma/rooms/home.jpg')\n\
+    \  {%- endif -%};\n}\n@media (prefers-color-scheme: dark) {\n  :host {\n    {%- if panel.viewUrlPath == 'electricity'\
+    \ -%}\n    --uix-view-background: linear-gradient(rgba(55,55,55,0.50),rgba(55,55,55,0.50)),center/cover no-repeat url('/local/hemma/rooms/home-night.jpg')\n\
+    \    {%- endif -%};\n  }\n}\n@media (max-width: 767px) {\n  :host {\n    {%- if panel.viewUrlPath == 'electricity' -%}\n\
+    \    --uix-view-background: linear-gradient(rgba(80,80,80,0.20),rgba(80,80,80,0.20)),center/cover no-repeat url('/local/hemma/mobile/mobile-day.jpg')\n\
+    \    {%- endif -%};\n  }\n}\n@media (max-width: 767px) and (prefers-color-scheme: dark) {\n  :host {\n    {%- if panel.viewUrlPath\
+    \ == 'electricity' -%}\n    --uix-view-background: linear-gradient(rgba(80,80,80,0.20),rgba(80,80,80,0.20)),center/cover\
+    \ no-repeat url('/local/hemma/mobile/mobile-day-dark.jpg')\n    {%- endif -%};\n  }\n}\n"
+  uix-view-background: ".uix-bg-image {\n  filter: blur(4px) saturate(1.02) brightness(0.985);\n}\n@media (max-width: 767px)\
+    \ {\n  .uix-bg-image {\n    filter: saturate(1.00) brightness(0.85);\n  }\n}\n"
+everyday-citrus:
+  # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
+  # frosted-glass injection (= everyday-family theme opt-in).
+  everyday-frosted-portals: 'true'
+  surface-page: '#fff8ed'
+  surface-color: rgba(255,250,240,0.65)
+  surface-elevated: rgba(255,240,220,0.85)
+  surface-deepest: '#fffdf5'
+  brand-color: '#6b2d8f'
+  active-color: '#ff5e3d'
+  secondary-accent: '#ffaa00'
+  inactive-color: rgba(107,45,143,0.30)
+  text-primary: '#3d1455'
+  text-secondary: rgba(60,20,85,0.72)
+  text-disabled: rgba(60,20,85,0.42)
+  shadow-soft: 0 1px 3px rgba(60,20,0,0.10)
+  shadow-strong: 0 14px 40px rgba(60,20,0,0.20)
+  blur-glass: blur(22px) saturate(1.5)
+  state-warning: '#c87a00'
+  state-error: '#c03c2c'
+  state-success: '#2c8a3c'
+  state-info: '#167a8c'
+  primary-color: var(--brand-color)
+  accent-color: var(--active-color)
+  primary-background-color: var(--surface-page)
+  card-background-color: var(--surface-color)
+  ha-card-background: var(--surface-color)
+  ha-card-background-active: var(--surface-elevated)
+  divider-color: rgba(60,20,85,0.12)
+  primary-text-color: var(--text-primary)
+  text-primary-color: var(--text-primary)
+  secondary-text-color: var(--text-secondary)
+  disabled-text-color: var(--text-disabled)
+  state-active-color: var(--active-color)
+  state-icon-active-color: var(--active-color)
+  state-light-on-color: var(--active-color)
+  paper-item-icon-active-color: var(--active-color)
+  paper-item-icon-color: var(--text-secondary)
+  app-header-background-color: transparent
+  app-header-edit-background-color: transparent
+  app-header-border-bottom: none
+  app-header-text-color: var(--text-primary)
+  sidebar-background-color: var(--surface-color)
+  sidebar-icon-color: var(--text-primary)
+  sidebar-selected-icon-color: var(--active-color)
+  # Stefan-Decision 2026-05-10: everyday-citrus has solid-color background (no wallpaper).
+  # surface-page (#fff8ed warm cream) acts as the body background via primary-background-color.
+  error-color: var(--state-error)
+  warning-color: var(--state-warning)
+  success-color: var(--state-success)
+  info-color: var(--state-info)
+  paper-font-body1_-_font-family: '"Schibsted Grotesk", system-ui, sans-serif'
+  paper-font-headline_-_font-family: '"Bricolage Grotesque", "Schibsted Grotesk", sans-serif'
+  paper-font-code1_-_font-family: '"MonoDev", "MonoLisa", "Cascadia Code", "JetBrains Mono", ui-monospace, monospace'
+  mush-rgb-state-light: 255,94,61
+  mush-card-primary-font-family: '"Bricolage Grotesque", sans-serif'
+  mush-card-secondary-font-family: '"Schibsted Grotesk", sans-serif'
+  hemma-card-bg: var(--surface-color)
+  hemma-control-on: var(--active-color)
+  hemma-control-off: var(--inactive-color)
+  speaker-row-bg: rgba(60,20,85,0.85)
+  speaker-row-radius: 30px
+  speaker-track-color: white
+  speaker-thumb-color: white
