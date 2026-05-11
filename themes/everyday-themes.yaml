@@ -805,6 +805,10 @@ everyday:
       # frosted-glass injection. Without this var, other themes (default, Glass,
       # Domaine Velvet) would get frosted-glass dropdowns too (script runs globally).
       everyday-frosted-portals: 'true'
+      # BUG-004-v4 fix 2026-05-11: standard HA card border-radius. Set to 30px so
+      # both ha-card and ha-card.type-custom-grid-layout (handled inline via portal-styles.js)
+      # render with same rounded corners. Default HA value is 12px which felt too tight.
+      ha-border-radius-lg: 30px
       surface-page: '#151023'
       # iOS Notch tint via --app-theme-color was tried 2026-05-10 (#0a0518 surface-deepest) - too dark per Stefan.
       # Reverted; HA-iOS falls back to --app-header-background-color rgba alpha which gives subtle tint.
@@ -927,6 +931,8 @@ everyday:
       # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
       # frosted-glass injection (see dark mode for full rationale).
       everyday-frosted-portals: 'true'
+      # BUG-004-v4 fix 2026-05-11: same 30px border-radius for standard + grid-layout cards.
+      ha-border-radius-lg: 30px
       surface-page: '#fcfcfc'
       # iOS Notch app-theme-color reverted 2026-05-10 (was #001848, Stefan-pic IMG_7566 too dark).
       # ha-dropdown surface (Web Awesome variable). Stefan-Decision 2026-05-10: alpha 1.0 fully opaque + !important
@@ -1801,6 +1807,8 @@ everyday-citrus:
   # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
   # frosted-glass injection (= everyday-family theme opt-in).
   everyday-frosted-portals: 'true'
+  # BUG-004-v4 fix 2026-05-11: same 30px border-radius for standard + grid-layout cards.
+  ha-border-radius-lg: 30px
   surface-page: '#fff8ed'
   surface-color: rgba(255,250,240,0.65)
   surface-elevated: rgba(255,240,220,0.85)

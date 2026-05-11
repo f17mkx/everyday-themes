@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v15 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v16 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -248,7 +248,10 @@ function findGridLayoutCards(root, found = []) {
 
 function styleGridLayoutCard(el) {
   if (el.dataset.everydayGridStyled === 'true') return false;
-  el.style.setProperty('border-radius', '0', 'important');
+  // v16: Stefan-Refinement - statt 0 (flach) verwenden wir die same border-radius
+  // wie standard HA-Karten via --ha-border-radius-lg. Wert wird im theme yaml auf 30px
+  // gesetzt, sodass standard cards + grid-layout cards visually konsistent rendern.
+  el.style.setProperty('border-radius', 'var(--ha-border-radius-lg)', 'important');
   el.dataset.everydayGridStyled = 'true';
   return true;
 }
