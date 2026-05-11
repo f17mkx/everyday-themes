@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v16 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v17 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -144,8 +144,16 @@ function cleanupAllInlineStyles() {
           el.style.removeProperty('--wa-color-brand-on-loud');
           el.style.removeProperty('--wa-color-brand-on-normal');
           el.style.removeProperty('--wa-color-brand-on-quiet');
+          el.style.removeProperty('--wa-color-on-loud');
           el.style.removeProperty('--wa-color-on-normal');
+          el.style.removeProperty('--wa-color-on-quiet');
+          el.style.removeProperty('--wa-color-fill-loud');
           el.style.removeProperty('--wa-color-fill-normal');
+          el.style.removeProperty('--wa-color-fill-quiet');
+          if (el.shadowRoot) {
+            const hoverFix = el.shadowRoot.querySelector('style#everyday-ha-button-hover-fix');
+            if (hoverFix) hoverFix.remove();
+          }
           delete el.dataset.everydayButtonStyled;
         }
       }
@@ -288,17 +296,42 @@ function styleHaButton(el) {
   const haCardBg = cs.getPropertyValue('--ha-card-background').trim() || 'rgba(255,255,255,0.40)';
   // v15: discovered via live recon that ha-button size="small" appearance="filled"
   // variant="brand" actually reads from brand-fill-NORMAL (not -loud as initially assumed).
-  // So we set the FULL trio (loud/normal/quiet) for both fill + on. Safe + covers all variants.
-  // brand-* = primary CTAs (Done, Save). on-* = text-color on the brand-fill background.
+  // v17: extended to non-brand variants (loud/normal/quiet) for plain-appearance buttons.
+  // Stefan-Befund 2026-05-11: plain-button hover-rule uses var(--wa-color-on-normal), HA
+  // default = blue → unreadable. Set all 12 wa-vars to readable values.
+  // Brand variants (filled buttons = primary CTAs like Done/Save):
   el.style.setProperty('--wa-color-brand-fill-loud', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-normal', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-quiet', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-loud', textPrimaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-normal', textPrimaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-quiet', textPrimaryColor, 'important');
-  // Normal/default variant (non-brand buttons)
+  // Non-brand variants (plain/default buttons - card-tonal bg, dark/primary text):
+  el.style.setProperty('--wa-color-on-loud', primaryTextColor, 'important');
   el.style.setProperty('--wa-color-on-normal', primaryTextColor, 'important');
+  el.style.setProperty('--wa-color-on-quiet', primaryTextColor, 'important');
+  el.style.setProperty('--wa-color-fill-loud', haCardBg, 'important');
   el.style.setProperty('--wa-color-fill-normal', haCardBg, 'important');
+  el.style.setProperty('--wa-color-fill-quiet', haCardBg, 'important');
+
+  // v17 shadow-inject belt-and-suspenders: if cascade ignores host inline-style for
+  // the inner button's shadow-CSS, this `<style>` inside ha-button.shadowRoot directly
+  // re-declares the plain-button hover rule with a known-readable color, fixing Stefan's
+  // BUG-007 (blue hover unreadable on plain-appearance buttons).
+  if (el.shadowRoot && !el.shadowRoot.querySelector('style#everyday-ha-button-hover-fix')) {
+    const s = document.createElement('style');
+    s.id = 'everyday-ha-button-hover-fix';
+    s.textContent = `
+      @media (hover: hover) {
+        :host([appearance~="plain"]) .button:not(.disabled):not(.loading):hover {
+          color: var(--primary-text-color, ${primaryTextColor}) !important;
+          background-color: var(--ha-card-background, ${haCardBg}) !important;
+        }
+      }
+    `;
+    el.shadowRoot.appendChild(s);
+  }
+
   el.dataset.everydayButtonStyled = 'true';
   return true;
 }
