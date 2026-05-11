@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v11 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v12 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -208,41 +208,10 @@ function findAllMenus(root, found = []) {
   return found;
 }
 
-// v10: BUG-004 - hui-card-options has bottom-only border-radius by default
-// (only bottom-left/bottom-right rounded, top corners sharp). Find each
-// hui-card-options shadowRoot's .options container and apply all-corner radius.
-function findCardOptionsContainers(root, found = []) {
-  if (!root) return found;
-  try {
-    const all = root.querySelectorAll?.('hui-card-options') || [];
-    for (const el of all) {
-      if (el.shadowRoot) {
-        // .options is the inner toolbar div with bottom-only radius
-        const opt = el.shadowRoot.querySelector('.options, .header, [class*="toolbar"]');
-        if (opt) found.push(opt);
-        // Also the host itself - sometimes the radius is on the host
-        found.push(el);
-      }
-    }
-    const everything = root.querySelectorAll?.('*') || [];
-    for (const el of everything) {
-      if (el.shadowRoot) findCardOptionsContainers(el.shadowRoot, found);
-    }
-  } catch (e) {}
-  return found;
-}
-
-function styleCardOptions(el) {
-  if (el.dataset.everydayCardOptStyled === 'true') return false;
-  el.style.setProperty('border-radius', '14px', 'important');
-  el.style.setProperty('border-top-left-radius', '14px', 'important');
-  el.style.setProperty('border-top-right-radius', '14px', 'important');
-  el.style.setProperty('border-bottom-left-radius', '14px', 'important');
-  el.style.setProperty('border-bottom-right-radius', '14px', 'important');
-  el.style.setProperty('overflow', 'hidden', 'important');
-  el.dataset.everydayCardOptStyled = 'true';
-  return true;
-}
+// v12: BUG-004 inline-style approach REVERTED (Stefan-Befund: didn't work visually).
+// Replacement lives in everyday-themes.yaml card-mod-root-yaml:
+//   ha-card.type-custom-grid-layout { border-radius: unset !important }
+// Functions findCardOptionsContainers + styleCardOptions removed.
 
 // Apply inline styles to a div#menu element. Inline wins over
 // adoptedStyleSheets + <style> tags + !important cascade.
@@ -304,7 +273,9 @@ function sweep() {
   }
 
   // v6: deep-walk for div[part="menu"] anywhere, regardless of which shadow contains it
-  // v10: now also catches div[part="body"] and dialog[part="dialog"] (wa-popover surfaces)
+  // v10: now also catches div[part="body"] (wa-popover surface for ha-language-picker)
+  // v11: removed dialog[part="dialog"] (was leaking backdrop-blur to whole viewport)
+  // v12: hui-card-options walk removed (Stefan-Befund: didn't work, moved to card-mod yaml)
   const menus = findAllMenus(document);
   let inlineApplied = 0;
   for (const m of menus) {
@@ -312,21 +283,14 @@ function sweep() {
   }
   inlineTotal += inlineApplied;
 
-  // v10: also walk hui-card-options for BUG-004 sharp top-edges
-  const cardOptContainers = findCardOptionsContainers(document);
-  let cardOptApplied = 0;
-  for (const el of cardOptContainers) {
-    if (styleCardOptions(el)) cardOptApplied++;
-  }
-
   if (!firstInlineApplied && inlineApplied > 0) {
     firstInlineApplied = true;
     console.log('[everyday-portal-styles] FIRST inline style applied to div#menu, count=' + inlineApplied);
   }
 
-  if (injectedPopups > 0 || injectedDropdowns > 0 || inlineApplied > 0 || cardOptApplied > 0) {
+  if (injectedPopups > 0 || injectedDropdowns > 0 || inlineApplied > 0) {
     lastInjected = Date.now();
-    console.log('[everyday-portal-styles] sweep: popup-style=' + injectedPopups + ' dropdown-style=' + injectedDropdowns + ' inline-menu=' + inlineApplied + ' card-opts=' + cardOptApplied + ' (found ' + popups.length + ' popups, ' + popovers.length + ' popovers, ' + dropdowns.length + ' dropdowns, ' + menus.length + ' menus, ' + cardOptContainers.length + ' card-opts, inline-total=' + inlineTotal + ')');
+    console.log('[everyday-portal-styles] sweep: popup-style=' + injectedPopups + ' dropdown-style=' + injectedDropdowns + ' inline-menu=' + inlineApplied + ' (found ' + popups.length + ' popups, ' + popovers.length + ' popovers, ' + dropdowns.length + ' dropdowns, ' + menus.length + ' menus, inline-total=' + inlineTotal + ')');
   }
 }
 

@@ -880,6 +880,11 @@ everyday:
       md-text-button-label-text-color: var(--primary-color)
       md-outlined-button-label-text-color: var(--primary-color)
       md-outlined-button-outline-color: var(--divider-color)
+      # BUG-003-v2 fix 2026-05-11: WebAwesome vars - HA's `ha-button` actually extends wa-button,
+      # not pure M3. Stefan-DevTools-Befund: `--wa-color-on-normal` (text) + `--wa-color-fill-normal` (bg)
+      # are the real drivers. M3 vars above only catch some sub-buttons; wa vars catch the rest.
+      wa-color-on-normal: var(--primary-text-color)
+      wa-color-fill-normal: var(--ha-card-background)
       app-header-background-color: rgba(40,22,64,0.30)
       app-header-edit-background-color: rgba(40,22,64,0.30)
       app-header-border-bottom: none
@@ -976,6 +981,10 @@ everyday:
       md-text-button-label-text-color: var(--primary-color)
       md-outlined-button-label-text-color: var(--primary-color)
       md-outlined-button-outline-color: var(--divider-color)
+      # BUG-003-v2 fix 2026-05-11: WebAwesome vars (mirrors dark mode block).
+      # `ha-button` (Done edit-mode button etc) renders via wa-button under the hood.
+      wa-color-on-normal: var(--primary-text-color)
+      wa-color-fill-normal: var(--ha-card-background)
       app-header-background-color: rgba(255,255,255,0.30)
       app-header-edit-background-color: rgba(255,255,255,0.30)
       app-header-border-bottom: none
@@ -1015,6 +1024,14 @@ everyday:
   # card-mod-sidebar-yaml = injects CSS INTO ha-sidebar's shadow root via :host (the modern way).
   card-mod-root-yaml: |
     .: |
+      /* BUG-004-v2 fix 2026-05-11: custom-grid-layout cards have border-radius that
+         conflicts with hui-card-options edit-mode toolbar (sharp top edges). Stefan-Befund:
+         border-radius: unset on this class looks better than rounding the toolbar.
+         Original v11 approach (findCardOptionsContainers/styleCardOptions in portal-styles.js)
+         was reverted. */
+      ha-card.type-custom-grid-layout {
+        border-radius: unset !important;
+      }
       /* Dropdown frosted-glass - Stefan-confirmed selector: wa-popup div#menu (inside ha-dropdown shadow).
          ha-dropdown extends Web Awesome Dropdown - the actual visual surface is div#menu nested inside wa-popup.
          --wa-color-surface-raised controls the dropdown's CSS variable chain (-> --card-background-color). */
