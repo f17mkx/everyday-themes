@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v17 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v18 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -144,6 +144,7 @@ function cleanupAllInlineStyles() {
           el.style.removeProperty('--wa-color-brand-on-loud');
           el.style.removeProperty('--wa-color-brand-on-normal');
           el.style.removeProperty('--wa-color-brand-on-quiet');
+          // v18: also remove v15-v17 non-brand vars in case theme switched FROM v15-17 state
           el.style.removeProperty('--wa-color-on-loud');
           el.style.removeProperty('--wa-color-on-normal');
           el.style.removeProperty('--wa-color-on-quiet');
@@ -288,44 +289,36 @@ function findAllHaButtons(root, found = []) {
 
 function styleHaButton(el) {
   if (el.dataset.everydayButtonStyled === 'true') return false;
-  // Read once from :root - the theme yaml IS setting these tokens, just at low specificity.
   const cs = getComputedStyle(document.documentElement);
   const primaryColor = cs.getPropertyValue('--primary-color').trim() || '#001848';
   const textPrimaryColor = cs.getPropertyValue('--text-primary-color').trim() || '#ffffff';
-  const primaryTextColor = cs.getPropertyValue('--primary-text-color').trim() || '#001034';
-  const haCardBg = cs.getPropertyValue('--ha-card-background').trim() || 'rgba(255,255,255,0.40)';
-  // v15: discovered via live recon that ha-button size="small" appearance="filled"
-  // variant="brand" actually reads from brand-fill-NORMAL (not -loud as initially assumed).
-  // v17: extended to non-brand variants (loud/normal/quiet) for plain-appearance buttons.
-  // Stefan-Befund 2026-05-11: plain-button hover-rule uses var(--wa-color-on-normal), HA
-  // default = blue → unreadable. Set all 12 wa-vars to readable values.
-  // Brand variants (filled buttons = primary CTAs like Done/Save):
+  // v18 Stefan-Feedback: revert v17's aggressive non-brand var-overrides (Stefan likes
+  // the pre-v17 plain-button look = HA-defaults). Keep ONLY brand-variant overrides for
+  // Done-button etc (`variant="brand"` reads from brand-fill-* + brand-on-*).
+  // For plain-appearance buttons: surgical fix via shadow-inject only (lighter text +
+  // readable hover).
   el.style.setProperty('--wa-color-brand-fill-loud', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-normal', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-quiet', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-loud', textPrimaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-normal', textPrimaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-quiet', textPrimaryColor, 'important');
-  // Non-brand variants (plain/default buttons - card-tonal bg, dark/primary text):
-  el.style.setProperty('--wa-color-on-loud', primaryTextColor, 'important');
-  el.style.setProperty('--wa-color-on-normal', primaryTextColor, 'important');
-  el.style.setProperty('--wa-color-on-quiet', primaryTextColor, 'important');
-  el.style.setProperty('--wa-color-fill-loud', haCardBg, 'important');
-  el.style.setProperty('--wa-color-fill-normal', haCardBg, 'important');
-  el.style.setProperty('--wa-color-fill-quiet', haCardBg, 'important');
 
-  // v17 shadow-inject belt-and-suspenders: if cascade ignores host inline-style for
-  // the inner button's shadow-CSS, this `<style>` inside ha-button.shadowRoot directly
-  // re-declares the plain-button hover rule with a known-readable color, fixing Stefan's
-  // BUG-007 (blue hover unreadable on plain-appearance buttons).
+  // v18 shadow-inject: surgical plain-button text-color fix.
+  // Non-hover: use --wa-color-on-quiet (Stefan-suggested, = lighter cyan vs HA-default
+  //   --wa-color-on-normal). Edit-text "wrong, should be lighter" → lighter cyan.
+  // Hover: white text (var(--text-primary-color)) so readable on WA's blue hover-bg.
+  // NO bg override — Stefan wants the WA hover-blue-bg back.
   if (el.shadowRoot && !el.shadowRoot.querySelector('style#everyday-ha-button-hover-fix')) {
     const s = document.createElement('style');
     s.id = 'everyday-ha-button-hover-fix';
     s.textContent = `
+      :host([appearance~="plain"]) .button:not(.disabled):not(.loading) {
+        color: var(--wa-color-on-quiet) !important;
+      }
       @media (hover: hover) {
         :host([appearance~="plain"]) .button:not(.disabled):not(.loading):hover {
-          color: var(--primary-text-color, ${primaryTextColor}) !important;
-          background-color: var(--ha-card-background, ${haCardBg}) !important;
+          color: var(--text-primary-color, ${textPrimaryColor}) !important;
         }
       }
     `;
