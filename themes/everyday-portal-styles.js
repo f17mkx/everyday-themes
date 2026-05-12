@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v18 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v20 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -34,6 +34,8 @@ const DROPDOWN_SHADOW_STYLE_ID = 'everyday-portal-dropdown-style';
 // Fallback: document.head CSS. Reaches body-portal popups natively.
 // v10 2026-05-11: + wa-popover support (ha-generic-picker -> ha-language-picker on /profile/general)
 //                + hui-card-options border-radius (BUG-004 sharp top-edges in dashboard edit-mode)
+// v20 2026-05-12: border-radius `0 0 14px 14px` (flat top, rounded bottom) - Stefan-Wunsch
+//                 so dropdowns look like "natural extension" of trigger above them.
 const FALLBACK_CSS = `
   /* HA dropdown menu (body-portal case, rare) */
   div#menu[part="menu"] {
@@ -41,7 +43,7 @@ const FALLBACK_CSS = `
     backdrop-filter: blur(20px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
     border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 14px !important;
+    border-radius: 0 0 14px 14px !important;
   }
 
   /* everyday-light-card popups (body-portal via .everyday-popup-portal).
@@ -67,7 +69,7 @@ const POPUP_SHADOW_CSS = `
     backdrop-filter: blur(20px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
     border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 14px !important;
+    border-radius: 0 0 14px 14px !important;
   }
 `;
 
@@ -82,7 +84,7 @@ const DROPDOWN_SHADOW_CSS = `
     backdrop-filter: blur(20px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
     border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 14px !important;
+    border-radius: 0 0 14px 14px !important;
   }
 `;
 
@@ -334,11 +336,13 @@ function styleHaButton(el) {
 function styleMenu(m) {
   if (m.dataset.everydayStyled === 'true') return false;
   // v8: bg alpha 0.20 für Stefan's blur-Beurteilung (vorher var(--card-background-color) = 0.70/0.35)
+  // v20: border-radius `0 0 14px 14px` (flat top, rounded bottom) - Stefan-Wunsch:
+  //      dropdowns sollen wie "natural extension" des Triggers oberhalb wirken.
   m.style.setProperty('background-color', 'rgba(255,255,255,0.20)', 'important');
   m.style.setProperty('backdrop-filter', 'blur(20px) saturate(1.4)', 'important');
   m.style.setProperty('-webkit-backdrop-filter', 'blur(20px) saturate(1.4)', 'important');
   m.style.setProperty('border', '1px solid rgba(255,255,255,0.08)', 'important');
-  m.style.setProperty('border-radius', '14px', 'important');
+  m.style.setProperty('border-radius', '0 0 14px 14px', 'important');
   m.dataset.everydayStyled = 'true';
   return true;
 }
