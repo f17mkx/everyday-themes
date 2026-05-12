@@ -25,7 +25,7 @@
  * (P14c.2/P15) - same approach for body-portal popups in custom card.
  */
 
-console.log('[everyday-portal-styles] v20 module loaded, readyState=' + document.readyState);
+console.log('[everyday-portal-styles] v21 module loaded, readyState=' + document.readyState);
 
 const FALLBACK_STYLE_ID = 'everyday-portal-styles-fallback';
 const POPUP_SHADOW_STYLE_ID = 'everyday-portal-popup-style';
@@ -290,15 +290,35 @@ function findAllHaButtons(root, found = []) {
 }
 
 function styleHaButton(el) {
-  if (el.dataset.everydayButtonStyled === 'true') return false;
+  // v21 Stefan-Bug: white-on-white plain-brand buttons on /developer-tools/yaml.
+  // Root cause: v17 set 12 wa-vars inline (including --wa-color-on-quiet: white in everyday-light).
+  // v18 removed those vars from the SETTER, but already-styled buttons (dataset=true) skipped re-style,
+  // so the v17 inline-vars persisted. My v18 shadow-rule then resolved `color: var(--wa-color-on-quiet)`
+  // to the lingering white = invisible on white card-bg.
+  // Fix: bump version-marker so v21 re-applies fresh, and force-clean any old non-brand vars.
+  if (el.dataset.everydayButtonStyledV === '21') return false;
+
+  // Force-clean v17-era stale non-brand wa-vars from this element (the dataset flag from
+  // any earlier version remains, but we explicitly wipe the offending inline keys)
+  el.style.removeProperty('--wa-color-on-loud');
+  el.style.removeProperty('--wa-color-on-normal');
+  el.style.removeProperty('--wa-color-on-quiet');
+  el.style.removeProperty('--wa-color-fill-loud');
+  el.style.removeProperty('--wa-color-fill-normal');
+  el.style.removeProperty('--wa-color-fill-quiet');
+
+  // Remove old shadow-injected styles too (they referenced the now-wiped vars)
+  if (el.shadowRoot) {
+    const oldHover = el.shadowRoot.querySelector('style#everyday-ha-button-hover-fix');
+    if (oldHover) oldHover.remove();
+  }
+
   const cs = getComputedStyle(document.documentElement);
   const primaryColor = cs.getPropertyValue('--primary-color').trim() || '#001848';
   const textPrimaryColor = cs.getPropertyValue('--text-primary-color').trim() || '#ffffff';
-  // v18 Stefan-Feedback: revert v17's aggressive non-brand var-overrides (Stefan likes
-  // the pre-v17 plain-button look = HA-defaults). Keep ONLY brand-variant overrides for
-  // Done-button etc (`variant="brand"` reads from brand-fill-* + brand-on-*).
-  // For plain-appearance buttons: surgical fix via shadow-inject only (lighter text +
-  // readable hover).
+
+  // Brand-variant vars (only): Done-button + other variant="brand" elements.
+  // Non-brand vars stay at HA-defaults (Stefan likes that look).
   el.style.setProperty('--wa-color-brand-fill-loud', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-normal', primaryColor, 'important');
   el.style.setProperty('--wa-color-brand-fill-quiet', primaryColor, 'important');
@@ -306,17 +326,17 @@ function styleHaButton(el) {
   el.style.setProperty('--wa-color-brand-on-normal', textPrimaryColor, 'important');
   el.style.setProperty('--wa-color-brand-on-quiet', textPrimaryColor, 'important');
 
-  // v18 shadow-inject: surgical plain-button text-color fix.
-  // Non-hover: use --wa-color-on-quiet (Stefan-suggested, = lighter cyan vs HA-default
-  //   --wa-color-on-normal). Edit-text "wrong, should be lighter" → lighter cyan.
-  // Hover: white text (var(--text-primary-color)) so readable on WA's blue hover-bg.
-  // NO bg override — Stefan wants the WA hover-blue-bg back.
+  // v21 shadow-inject: surgical plain-appearance text fix.
+  // Non-hover plain text → use --primary-color (theme-tied, visible on transparent card bg).
+  //   Previous v18 used --wa-color-on-quiet which on brand-plain buttons cascaded to white via
+  //   :host([variant="brand"]) cascade rule = white-on-white bug.
+  // Hover plain → white text (readable on WA's blue hover-bg).
   if (el.shadowRoot && !el.shadowRoot.querySelector('style#everyday-ha-button-hover-fix')) {
     const s = document.createElement('style');
     s.id = 'everyday-ha-button-hover-fix';
     s.textContent = `
       :host([appearance~="plain"]) .button:not(.disabled):not(.loading) {
-        color: var(--wa-color-on-quiet) !important;
+        color: var(--primary-color, ${primaryColor}) !important;
       }
       @media (hover: hover) {
         :host([appearance~="plain"]) .button:not(.disabled):not(.loading):hover {
@@ -328,6 +348,7 @@ function styleHaButton(el) {
   }
 
   el.dataset.everydayButtonStyled = 'true';
+  el.dataset.everydayButtonStyledV = '21';
   return true;
 }
 
