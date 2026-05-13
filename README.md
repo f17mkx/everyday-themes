@@ -11,6 +11,10 @@
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/f17mkx?style=flat-square&logo=github&color=ea4aaa&label=Sponsor)](https://github.com/sponsors/f17mkx)
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me-a%20Coffee-FFDD00?style=flat-square&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/f17mkx)
 
+![Everyday dark hero wallpaper — Vegas Lila brand on deep purple, the default lovelace-background for the dark mode.](wallpapers/everyday-dark.jpg)
+
+![Everyday light hero wallpaper — Navy brand on soft mint, the default lovelace-background for the light mode.](wallpapers/everyday-light.jpg)
+
 ## What you get
 
 - **`everyday`** — single coherent theme with dark + light modes
