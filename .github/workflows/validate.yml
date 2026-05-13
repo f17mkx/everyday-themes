@@ -1,0 +1,27 @@
+name: HACS Validation
+
+# everyday-themes lives only as a public repo (no dev-mirror split, by
+# Stefan-Decision in repo-naming convention). Validation runs on push,
+# pull_request, daily cron, and manual dispatch — all paths active because
+# this IS the public repo HACS reads from.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  hacs:
+    # Guard like the lightcard workflow so a fork can't accidentally
+    # publish a "passing" validation on the wrong repo identity.
+    if: github.repository == 'f17mkx/everyday-themes'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: theme

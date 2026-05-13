@@ -3,8 +3,13 @@
 > Frosted-glass aesthetic, dark + light modes, wallpaper-backed Lovelace.
 > Built for the modern HA frontend — brand-tied buttons, theme-token-only styling, Mushroom + speaker-row compatible.
 
-![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![HA min](https://img.shields.io/badge/Home%20Assistant-2024.6.0+-41BDF5)
+[![Version](https://img.shields.io/github/v/release/f17mkx/everyday-themes?style=flat-square&color=blue)](https://github.com/f17mkx/everyday-themes/releases)
+[![Release notes](https://img.shields.io/badge/Release-Notes-informational?style=flat-square)](https://github.com/f17mkx/everyday-themes/releases/latest)
+[![License: MIT](https://img.shields.io/github/license/f17mkx/everyday-themes?style=flat-square)](LICENSE)
+[![HA min](https://img.shields.io/badge/Home%20Assistant-2024.6.0+-41BDF5?style=flat-square&logo=home-assistant&logoColor=white)](https://www.home-assistant.io/)
+[![HACS Pending](https://img.shields.io/badge/HACS-Pending%20Default-orange?style=flat-square&logo=home-assistant&logoColor=white)](https://github.com/hacs/default/pulls?q=is%3Apr+f17mkx%2Feveryday-themes)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/f17mkx?style=flat-square&logo=github&color=ea4aaa&label=Sponsor)](https://github.com/sponsors/f17mkx)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me-a%20Coffee-FFDD00?style=flat-square&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/f17mkx)
 
 ## What you get
 
@@ -20,6 +25,8 @@
 - **`hui-card-options` all-four-corners rounding** — no more sharp-top-edges on edit-mode toolbar
 
 ## Installation
+
+> Status: pending HACS-Default review (queue: several months, [PR tracker](https://github.com/hacs/default/pulls?q=is%3Apr+f17mkx%2Feveryday-themes)). Until then, add as **custom repository**.
 
 ### Option A: HACS Custom Repository (recommended)
 

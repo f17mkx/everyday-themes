@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-05-13 — HACS submission prep
+
+- 📚 **README top-section**: aligned with everyday-light-card pattern — added release-tag badge + release-notes link, HACS Pending badge, GitHub Sponsors + Buy Me a Coffee buttons, HA-min badge with logo
+- 📚 **Install note**: "pending HACS-Default review" line above install options, mirroring lightcard's transitional copy until the HACS PR merges
+- 🔧 **`.github/workflows/validate.yml`**: HACS validation workflow (category: `theme`) — required by hacs/default review process. Repo-guard `if: github.repository == 'f17mkx/everyday-themes'` prevents fork-side false passes
+
 ## 2026-05-13 — v1.0.0 single-theme public release
 
 - 📦 **Public release**: repo flipped private → public, ready for HACS Custom Repository install
