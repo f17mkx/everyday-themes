@@ -1,10 +1,14 @@
 # Changelog
 
-## 2026-05-13 — HACS submission prep
+## 2026-05-13 — v1.0.1 HACS submission prep
 
 - 📚 **README top-section**: aligned with everyday-light-card pattern — added release-tag badge + release-notes link, HACS Pending badge, GitHub Sponsors + Buy Me a Coffee buttons, HA-min badge with logo
 - 📚 **Install note**: "pending HACS-Default review" line above install options, mirroring lightcard's transitional copy until the HACS PR merges
 - 🔧 **`.github/workflows/validate.yml`**: HACS validation workflow (category: `theme`) — required by hacs/default review process. Repo-guard `if: github.repository == 'f17mkx/everyday-themes'` prevents fork-side false passes
+- 🐛 **HACS validator fix**: embedded `wallpapers/everyday-dark.jpg` + `wallpapers/everyday-light.jpg` as hero images under the badge row. The validator's `<Validation images>` check requires repo-internal image references; shields.io badges don't count
+- 🔧 **GitHub repo topics**: `home-assistant`, `hacs`, `theme`, `ha-theme`, `lovelace`, `lovelace-theme`, `home-assistant-theme`, `frosted-glass`, `everyday`, `home-assistant-frontend` (required by HACS `<Validation topics>`)
+
+Reason for cutting v1.0.1 immediately after v1.0.0: HACS-Bot validates the repo's LATEST RELEASE, not main HEAD. v1.0.0 was tagged BEFORE the validator-prep commits landed, so the bot saw the old README without wallpaper hero images and failed `<Validation images>`. v1.0.1 captures the current main state so the bot re-validates against the fixed README.
 
 ## 2026-05-13 — v1.0.0 single-theme public release
 
