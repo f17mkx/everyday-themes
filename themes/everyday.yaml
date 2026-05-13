@@ -1,0 +1,374 @@
+# Everyday — single-theme distribution
+#
+# Frosted-glass cards, dark + light modes, wallpaper-backed Lovelace, brand-tied buttons.
+# Pareto-50 token coverage (Mushroom + speaker-row + Hemma frosted-glass compat).
+#
+# Companion module (required for frosted-glass dropdowns):
+#   themes/everyday-portal-styles.js — copy to /config/www/, register via
+#   frontend.extra_module_url in configuration.yaml.
+#
+# Wallpapers (required for default lovelace-background):
+#   wallpapers/everyday-dark.jpg → /config/www/wallpapers/
+#   wallpapers/everyday-light.jpg → /config/www/wallpapers/
+#
+# Source-of-truth: f17mkx/everyday-ha (private umbrella repo).
+# This file is mirrored from everyday-ha/themes/everyday-themes.yaml (lines 809-1165).
+# License: MIT.
+
+everyday:
+  modes:
+    dark:
+      # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
+      # frosted-glass injection. Without this var, other themes (default, Glass,
+      # Domaine Velvet) would get frosted-glass dropdowns too (script runs globally).
+      everyday-frosted-portals: 'true'
+      # BUG-004-v4 fix 2026-05-11: standard HA card border-radius. Set to 30px so
+      # both ha-card and ha-card.type-custom-grid-layout (handled inline via portal-styles.js)
+      # render with same rounded corners. Default HA value is 12px which felt too tight.
+      ha-border-radius-lg: 30px
+      surface-page: '#151023'
+      # iOS Notch tint via --app-theme-color was tried 2026-05-10 (#0a0518 surface-deepest) - too dark per Stefan.
+      # Reverted; HA-iOS falls back to --app-header-background-color rgba alpha which gives subtle tint.
+      # Wallpaper-show-through in Notch requires HA-Core PR (apple-mobile-web-app-status-bar-style: black-translucent).
+      # ha-dropdown defines --wa-color-surface-raised on :host via var(--card-background-color, ...) fallback chain.
+      # :host wins over :root by default - need !important on :root variable to override (Stefan-DevTools-audit 2026-05-10).
+      # Stefan-Decision: alpha 1.0 (fully opaque) so dropdown isn't transparent on /profile pages.
+      # Direct CSS variable injection via 'theme: {key: value}' yaml - HA wraps this in :root rule.
+      wa-color-surface-raised: 'rgb(20,12,32) !important'
+      # Override the fallback chain trigger too (--card-background-color is var(--surface-color) below) for ha-dropdown context.
+      # Lower alpha (was 0.62) gives the Hemma-style frosted-glass look when ha-card-backdrop-filter is applied.
+      surface-color: rgba(40,22,64,0.35)
+      surface-elevated: rgba(80,36,120,0.55)
+      surface-deepest: '#0a0518'
+      brand-color: '#6b2d8f'
+      active-color: '#FF7E3A'
+      secondary-accent: '#FF80BF'
+      inactive-color: rgba(107,45,143,0.30)
+      text-primary: '#FFE8FF'
+      text-secondary: rgba(245,220,255,0.74)
+      text-disabled: rgba(220,200,240,0.42)
+      shadow-soft: 0 1px 3px rgba(0,0,0,0.5)
+      shadow-strong: 0 14px 40px rgba(40,0,60,0.6)
+      blur-glass: blur(28px) saturate(1.6)
+      state-warning: '#FFCA80'
+      state-error: '#FF9580'
+      state-success: '#8AFF80'
+      state-info: '#80FFEA'
+      state-purple: '#9580FF'
+      state-yellow: '#FFFF80'
+      state-blue: '#5da3f4'
+      primary-color: var(--brand-color)
+      accent-color: var(--active-color)
+      primary-background-color: var(--surface-page)
+      secondary-background-color: var(--surface-page)
+      # Stefan-Decision 2026-05-10: --card-background-color semi-transparent rgba für Glass-Look.
+      # Backdrop-filter blur applied via card-mod shadow piercing below (works in lovelace).
+      # Auf /profile/general kann card-mod nicht reichen - dort bleibt nur das rgba sichtbar (kein blur).
+      card-background-color: rgba(20,12,32,0.65)
+      ha-card-background: var(--surface-color)
+      ha-card-background-active: var(--surface-elevated)
+      divider-color: rgba(255,255,255,0.08)
+      primary-text-color: var(--text-primary)
+      # text-primary-color = "text on primary-color background" (HA convention).
+      # primary-color is brand-color (#6b2d8f purple dark / #001848 navy light) - both dark.
+      # Therefore on-primary text = white in BOTH modes. (BUG-002 fix 2026-05-11)
+      text-primary-color: '#ffffff'
+      secondary-text-color: var(--text-secondary)
+      disabled-text-color: var(--text-disabled)
+      state-active-color: var(--active-color)
+      state-inactive-color: var(--inactive-color)
+      state-icon-active-color: var(--active-color)
+      state-icon-color: var(--text-secondary)
+      state-light-on-color: var(--active-color)
+      state-light-off-color: var(--inactive-color)
+      state-on-color: var(--state-success)
+      state-off-color: var(--inactive-color)
+      paper-item-icon-active-color: var(--active-color)
+      paper-item-icon-color: var(--text-secondary)
+      paper-listbox-background-color: var(--surface-color)
+      # BUG-002 fix 2026-05-11: M3 + MDC button vars - HA defaults give light-blue/cyan tonal buttons
+      # (Material 3 baseline). Tie all button surfaces to everyday brand tokens.
+      mdc-theme-primary: var(--primary-color)
+      mdc-theme-on-primary: var(--text-primary-color)
+      mdc-theme-on-surface: var(--primary-text-color)
+      # M3 filled button (used for "Add card" empty-section CTA - was dark-on-dark unreadable)
+      md-filled-button-container-color: var(--primary-color)
+      md-filled-button-label-text-color: var(--text-primary-color)
+      # M3 tonal button (used for "Done" edit-mode button - was light-blue + cyan HA defaults)
+      md-filled-tonal-button-container-color: var(--ha-card-background)
+      md-filled-tonal-button-label-text-color: var(--primary-text-color)
+      # M3 text + outlined buttons
+      md-text-button-label-text-color: var(--primary-color)
+      md-outlined-button-label-text-color: var(--primary-color)
+      md-outlined-button-outline-color: var(--divider-color)
+      # BUG-003 fix 2026-05-11 (v3): WebAwesome vars with !important to win over :host
+      # re-declaration on ha-button/wa-button (same pattern as wa-color-surface-raised 2026-05-10).
+      # The Done-Button is `appearance="filled" variant="brand"` → uses *-brand-fill-loud/-on-loud,
+      # NOT the *-normal pair. Setting both pairs for full coverage.
+      wa-color-on-normal: 'var(--primary-text-color) !important'
+      wa-color-fill-normal: 'var(--ha-card-background) !important'
+      wa-color-brand-fill-loud: 'var(--primary-color) !important'
+      wa-color-brand-on-loud: 'var(--text-primary-color) !important'
+      app-header-background-color: rgba(40,22,64,0.30)
+      app-header-edit-background-color: rgba(40,22,64,0.30)
+      app-header-border-bottom: none
+      app-header-text-color: var(--text-primary)
+      # Hemma frosted-glass pattern: backdrop-filter on cards, header, dialogs (modern HA respects these).
+      ha-card-backdrop-filter: var(--blur-glass)
+      app-header-backdrop-filter: blur(14px) saturate(1.4)
+      ha-dialog-surface-backdrop-filter: blur(20px) saturate(1.4)
+      sidebar-background-color: var(--surface-color)
+      sidebar-icon-color: var(--text-primary)
+      sidebar-text-color: var(--text-secondary)
+      sidebar-selected-icon-color: var(--active-color)
+      sidebar-selected-text-color: var(--text-primary)
+      lovelace-background: center / cover no-repeat fixed url('/local/wallpapers/everyday-dark.jpg')
+      error-color: var(--state-error)
+      warning-color: var(--state-warning)
+      success-color: var(--state-success)
+      info-color: var(--state-info)
+      paper-font-body1_-_font-family: '"Schibsted Grotesk", system-ui, sans-serif'
+      paper-font-headline_-_font-family: '"Bricolage Grotesque", "Schibsted Grotesk", sans-serif'
+      paper-font-code1_-_font-family: '"MonoDev", "MonoLisa", "Cascadia Code", "JetBrains Mono", ui-monospace, monospace'
+      mush-rgb-state-light: 255,126,58
+      mush-card-primary-font-family: '"Bricolage Grotesque", sans-serif'
+      mush-card-primary-font-weight: 600
+      mush-card-secondary-font-family: '"Schibsted Grotesk", sans-serif'
+      hemma-card-bg: var(--surface-color)
+      hemma-card-bg-active: var(--surface-elevated)
+      hemma-card-blur: var(--blur-glass)
+      hemma-control-on: var(--active-color)
+      hemma-control-off: var(--inactive-color)
+      speaker-row-bg: rgba(0,0,0,0.5)
+      speaker-row-shadow: var(--shadow-strong)
+      speaker-row-radius: 30px
+      speaker-track-color: white
+      speaker-thumb-color: white
+      # Stefan-Decision 2026-05-12: Glass→everyday box-shadow stack transfer.
+      # Hemma's inset rim+specular shadows give cards that 'glass-pane' edge highlight.
+      # Curious-to-see-how-it-looks test - tracks REQ-A from prompt-analysis-0010.md.
+      ha-card-box-shadow: var(--ha-card-box-shadow-dark)
+      button-card-box-shadow: var(--ha-shadow-dark)
+      button-card-box-shadow-active: var(--ha-shadow-dark)
+      button-card-box-shadow-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-dark-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-dark-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-dark-mobile)
+    light:
+      # BUG-006 fix 2026-05-11: marker var read by everyday-portal-styles.js to gate
+      # frosted-glass injection (see dark mode for full rationale).
+      everyday-frosted-portals: 'true'
+      # BUG-004-v4 fix 2026-05-11: same 30px border-radius for standard + grid-layout cards.
+      ha-border-radius-lg: 30px
+      surface-page: '#fcfcfc'
+      # iOS Notch app-theme-color reverted 2026-05-10 (was #001848, Stefan-pic IMG_7566 too dark).
+      # ha-dropdown surface (Web Awesome variable). Stefan-Decision 2026-05-10: alpha 1.0 fully opaque + !important
+      # to override ha-dropdown's :host var-chain fallback (which would otherwise use --card-background-color = rgba 0.4 alpha).
+      wa-color-surface-raised: 'rgb(255,255,255) !important'
+      # Lower alpha (was 0.65) for Hemma frosted-glass effect via ha-card-backdrop-filter.
+      surface-color: rgba(255,255,255,0.40)
+      surface-elevated: rgba(247,250,254,0.65)
+      surface-deepest: '#ffffff'
+      brand-color: '#001848'
+      active-color: '#58bcb4'
+      secondary-accent: '#ff5e3d'
+      inactive-color: rgba(0,24,72,0.30)
+      text-primary: '#001034'
+      text-secondary: rgba(0,16,52,0.70)
+      text-disabled: rgba(0,16,52,0.40)
+      shadow-soft: 0 1px 3px rgba(0,16,52,0.10)
+      shadow-strong: 0 12px 40px rgba(0,16,52,0.15)
+      blur-glass: blur(20px) saturate(1.3)
+      state-warning: '#c87a00'
+      state-error: '#c03c2c'
+      state-success: '#2c8a3c'
+      state-info: '#167a8c'
+      primary-color: var(--brand-color)
+      accent-color: var(--active-color)
+      primary-background-color: var(--surface-page)
+      # Stefan-Decision 2026-05-10: --card-background-color semi-transparent rgba für Glass-Look (light mode).
+      # backdrop-filter blur applied via card-mod shadow piercing below.
+      card-background-color: rgba(255,255,255,0.70)
+      ha-card-background: var(--surface-color)
+      ha-card-background-active: var(--surface-elevated)
+      divider-color: rgba(0,16,52,0.12)
+      primary-text-color: var(--text-primary)
+      # text-primary-color = "text on primary-color background" (HA convention).
+      # primary-color is brand-color #001848 (dark navy) - text on it must be white.
+      # (BUG-002 fix 2026-05-11)
+      text-primary-color: '#ffffff'
+      secondary-text-color: var(--text-secondary)
+      disabled-text-color: var(--text-disabled)
+      state-active-color: var(--active-color)
+      state-icon-active-color: var(--active-color)
+      state-light-on-color: var(--active-color)
+      state-light-off-color: var(--inactive-color)
+      paper-item-icon-active-color: var(--active-color)
+      paper-item-icon-color: var(--text-secondary)
+      # BUG-002 fix 2026-05-11: M3 + MDC button vars (mirrors dark mode block).
+      # Without these, light mode "Add card" button shows dark text on dark brand-color = invisible.
+      mdc-theme-primary: var(--primary-color)
+      mdc-theme-on-primary: var(--text-primary-color)
+      mdc-theme-on-surface: var(--primary-text-color)
+      md-filled-button-container-color: var(--primary-color)
+      md-filled-button-label-text-color: var(--text-primary-color)
+      md-filled-tonal-button-container-color: var(--ha-card-background)
+      md-filled-tonal-button-label-text-color: var(--primary-text-color)
+      md-text-button-label-text-color: var(--primary-color)
+      md-outlined-button-label-text-color: var(--primary-color)
+      md-outlined-button-outline-color: var(--divider-color)
+      # BUG-003 fix 2026-05-11 (v3): WebAwesome vars with !important (mirrors dark mode).
+      # Done-Button uses brand+loud variant - both pairs needed for full button coverage.
+      wa-color-on-normal: 'var(--primary-text-color) !important'
+      wa-color-fill-normal: 'var(--ha-card-background) !important'
+      wa-color-brand-fill-loud: 'var(--primary-color) !important'
+      wa-color-brand-on-loud: 'var(--text-primary-color) !important'
+      app-header-background-color: rgba(255,255,255,0.30)
+      app-header-edit-background-color: rgba(255,255,255,0.30)
+      app-header-border-bottom: none
+      app-header-text-color: var(--text-primary)
+      # Hemma frosted-glass pattern (mirrors dark mode setting).
+      ha-card-backdrop-filter: var(--blur-glass)
+      app-header-backdrop-filter: blur(14px) saturate(1.4)
+      ha-dialog-surface-backdrop-filter: blur(20px) saturate(1.4)
+      sidebar-background-color: var(--surface-color)
+      sidebar-icon-color: var(--text-primary)
+      sidebar-selected-icon-color: var(--active-color)
+      lovelace-background: center / cover no-repeat fixed url('/local/wallpapers/everyday-light.jpg')
+      error-color: var(--state-error)
+      warning-color: var(--state-warning)
+      success-color: var(--state-success)
+      info-color: var(--state-info)
+      paper-font-body1_-_font-family: '"Schibsted Grotesk", system-ui, sans-serif'
+      paper-font-headline_-_font-family: '"Bricolage Grotesque", "Schibsted Grotesk", sans-serif'
+      paper-font-code1_-_font-family: '"MonoDev", "MonoLisa", "Cascadia Code", "JetBrains Mono", ui-monospace, monospace'
+      mush-rgb-state-light: 88,188,180
+      mush-card-primary-font-family: '"Bricolage Grotesque", sans-serif'
+      mush-card-secondary-font-family: '"Schibsted Grotesk", sans-serif'
+      hemma-card-bg: var(--surface-color)
+      hemma-card-bg-active: var(--surface-elevated)
+      hemma-control-on: var(--active-color)
+      hemma-control-off: var(--inactive-color)
+      speaker-row-bg: rgba(0,16,52,0.85)
+      speaker-row-shadow: var(--shadow-strong)
+      speaker-row-radius: 30px
+      speaker-track-color: white
+      speaker-thumb-color: white
+      # Stefan-Decision 2026-05-12: Glass→everyday box-shadow stack transfer (light variant).
+      # Mirrors dark mode block - uses *-light shadow defs from theme-top-level.
+      ha-card-box-shadow: var(--ha-card-box-shadow-light)
+      button-card-box-shadow: var(--ha-shadow-light)
+      button-card-box-shadow-active: var(--ha-shadow-light)
+      button-card-box-shadow-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-active-mobile: var(--ha-shadow-light-mobile)
+      button-card-box-shadow-hover: var(--ha-shadow-light-hover)
+      button-card-box-shadow-hover-mobile: var(--ha-shadow-light-mobile)
+  # Hemma-style frosted-glass auf Sidebar/Drawer (requires HACS card-mod, Stefan has it via /hacsfiles/lovelace-card-mod/card-mod.js).
+  # Top-level (NOT inside modes) damit beide Light + Dark inheriten.
+  card-mod-theme: everyday
+  # Hemma-Pattern (upstream): card-mod-sidebar-yaml + ha-dropdown::part(menu) für modern HA Web Components.
+  # card-mod-root-yaml = root-level CSS (descendant selectors + ::part).
+  # card-mod-sidebar-yaml = injects CSS INTO ha-sidebar's shadow root via :host (the modern way).
+  card-mod-root-yaml: |
+    .: |
+      /* BUG-004 v12 yaml-block REMOVED in v13: cascade didn't reach selector.
+         Replaced with inline-style approach in everyday-portal-styles.js
+         (findGridLayoutCards + styleGridLayoutCard, walks shadow + sets
+         border-radius: 0 !important on each ha-card.type-custom-grid-layout host). */
+      /* Dropdown frosted-glass - Stefan-confirmed selector: wa-popup div#menu (inside ha-dropdown shadow).
+         ha-dropdown extends Web Awesome Dropdown - the actual visual surface is div#menu nested inside wa-popup.
+         --wa-color-surface-raised controls the dropdown's CSS variable chain (-> --card-background-color). */
+      ha-dropdown {
+        --wa-color-surface-raised: var(--ha-card-background) !important;
+      }
+      /* Root-level fallback: if wa-popup portals to body when shown, this catches it */
+      wa-popup div#menu,
+      wa-popup #menu {
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        background-color: var(--ha-card-background) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+      }
+      /* Legacy / older-HA fallback selectors */
+      ha-dropdown::part(menu),
+      wa-popup::part(popup),
+      mwc-menu,
+      mwc-menu-surface,
+      .mdc-menu,
+      .mdc-menu-surface {
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        background-color: var(--ha-card-background) !important;
+      }
+      /* Legacy fallback for older HA versions still using mdc-drawer */
+      .mdc-drawer {
+        background-color: var(--sidebar-background-color, rgba(40,22,64,0.35)) !important;
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        border-right: none !important;
+        box-shadow: none !important;
+      }
+    ha-dropdown:
+      $: |
+        /* Shadow-pierce ha-dropdown's shadow root - target wa-popup > div#menu (Stefan-Selector) */
+        wa-popup div#menu,
+        wa-popup #menu,
+        #menu {
+          backdrop-filter: blur(20px) saturate(1.4) !important;
+          -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+          background-color: var(--ha-card-background) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 14px !important;
+        }
+  # Modern HA sidebar: card-mod-sidebar-yaml injects directly into ha-sidebar shadow root.
+  # Stefan-Selector ha-drawer:nth-child(2) > ha-sidebar:nth-child(1) confirms modern Web Component path.
+  card-mod-sidebar-yaml: |
+    .: |
+      :host {
+        background-color: var(--sidebar-background-color, rgba(40,22,64,0.35)) !important;
+        backdrop-filter: blur(20px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+        border-right: none !important;
+        box-shadow: none !important;
+      }
+      .menu {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+      }
+  # Stefan-Decision 2026-05-12: theme-level shadow base vars (Glass→everyday transfer, REQ-A).
+  # Identical to Glass theme block (~lines 253-292) - same inset+specular shadow recipe
+  # so cards in everyday get the same 'glass-pane' rim+specular treatment as Hemma upstream.
+  # Per-mode bindings already set in modes.dark/light above (which mode picks light/dark variant).
+  ha-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset -2.5px
+    -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px rgba(255,255,255,0.25)
+
+    '
+  ha-shadow-light-hover: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 2.5px 2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset
+    -2.5px -2.5px 1.5px -3.5px rgba(255,255,255,0.2), inset 0 10px 18px -16px rgba(255,255,255,0.25), inset 0 -10px 18px -16px
+    rgba(255,255,255,0.25), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-light-mobile: 'inset 0 0 0 1px rgba(255,255,255,0.03), inset 3px 3px 1px -3px rgba(255,255,255,0.22), inset -3px
+    -3px 1px -3px rgba(255,255,255,0.22), inset 0 10px 18px -16px rgba(255,255,255,0.35), inset 0 -10px 18px -16px rgba(255,255,255,0.35)
+
+    '
+  ha-shadow-dark: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3), inset
+    0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '
+  ha-shadow-dark-hover: 'inset 3px 3px 1px -3.5px rgba(120,120,120,0.3), inset -3px -3px 1px -3.5px rgba(120,120,120,0.3),
+    inset 0 10px 18px -16px rgba(255,255,255,0.16), inset 0 -10px 18px -16px rgba(255,255,255,0.16), 0 8px 20px rgba(0,0,0,0.04)
+
+    '
+  ha-shadow-dark-mobile: 'inset 3px 3px 1px -3px rgba(140,140,140,0.30), inset -3px -3px 1px -3px rgba(140,140,140,0.30),
+    inset 0 10px 18px -16px rgba(255,255,255,0.30), inset 0 -10px 18px -16px rgba(255,255,255,0.30)
+
+    '
+  ha-card-box-shadow-light: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(255,255,255,0.1), inset
+    -2px -2px 0.5px -2px rgba(255,255,255,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.2)
+
+    '
+  ha-card-box-shadow-dark: 'inset 0 0 0 1px rgba(255,255,255,0.12), inset 3px 3px 1px -3.5px rgba(120,120,120,0.1), inset
+    -3px -3px 1px -3.5px rgba(120,120,120,0.1), inset 0 10px 18px -16px rgba(255,255,255,0.2), inset 0 -10px 18px -16px rgba(255,255,255,0.16)
+
+    '

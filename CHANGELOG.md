@@ -1,18 +1,26 @@
 # Changelog
 
-## 2026-05-12 — v19 Hemma full-import + box-shadow + wallpapers
+## 2026-05-13 — v1.0.0 single-theme public release
 
-- 🎨 feat(themes): NEW `Hemma` theme - canonical upstream willsanderson/Hemma imported verbatim (1338 lines), only modification: `lovelace-background` per-mode using everyday-light/dark wallpapers. Theme count: 5→6.
-- 🎨 feat(themes): `everyday` now gets the full Hemma box-shadow stack (8 top-level shadow base vars + 7 per-mode binding vars in dark+light). Cards now render with the same inset rim+specular 'glass-pane' edge highlight as Hemma upstream.
-- 🎨 feat(themes): `Glass` theme gets everyday-light wallpaper (light) + everyday-dark wallpaper (dark). Previously Hemma upstream lacked a `lovelace-background` and rendered against a generated radial-gradient fallback.
-- 🎨 feat(themes): `Glass Superpro` gets everyday-dark wallpaper for BOTH modes (Synthwave palette wants the dark backdrop either way).
+- 📦 **Public release**: repo flipped private → public, ready for HACS Custom Repository install
+- 🎨 **Single-theme distribution**: bundle reduced from 5 themes (Domaine Velvet / Glass / everyday / everyday-citrus / Glass Superpro) + Hemma import → just `everyday`. Stefan-decision: ship the polished one, keep the experimental siblings private in `everyday-ha`.
+- 📚 **README rewritten** for single-theme positioning
+- ⚖️ **Wallpaper attribution** note added — Apple-stock iPadOS source acknowledged
 
-## 2026-05-11 — v0.1.0 initial bootstrap
+Source `everyday.yaml` mirrors `everyday-ha/themes/everyday-themes.yaml` lines 809-1165 (the `everyday:` block). Companion `everyday-portal-styles.js` unchanged from previous bootstrap (v21 on HA-side, untouched here).
+
+## 2026-05-12 — v0.2 (private, not released)
+
+- 🎨 feat(themes): Hemma full-import + Glass→everyday box-shadow + wallpapers (v19 line of work, full bundle)
+- 🎨 feat(themes): dropdown border-radius `0 0 14px 14px` (v20)
+- 🐛 fix(themes): white-on-white plain-brand buttons regression (v21)
+
+## 2026-05-11 — v0.1.0 initial private bootstrap
 
 - 5 bundled themes: `everyday` (dark+light), `everyday-citrus` (light), `Glass` (dark+light), `Glass Superpro` (dark+light), `Domaine Velvet` (dark+light)
-- `everyday-portal-styles.js` v11 — deep shadow CSS injection for `wa-popup` (HA dropdowns) + `wa-popover` (HA generic-picker / language-picker); theme-gated via `--everyday-frosted-portals` CSS-var so other themes stay unaffected
-- M3 + MDC button vars tied to brand tokens (fixes dark-on-dark "Add card" + HA-cyan "Done" button in HA dashboards)
-- `hui-card-options` all-four-corners rounding (no more sharp-top-edges on edit-mode toolbar)
+- `everyday-portal-styles.js` v11 — deep shadow CSS injection for `wa-popup` + `wa-popover`
+- M3 + MDC button vars tied to brand tokens
+- `hui-card-options` all-four-corners rounding
 - Hemma-style sidebar + frosted-glass cards/headers/dialogs
 - Wallpaper-backed lovelace (dark + light variants)
 
